@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body class="light-blue lighten-5">
+    <!-- Nav bar -->
+    <nav>
+        <div class="blue lighten-1 nav-wrapper">
+            <a class="brand-logo center">One Stop Health</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="#">Our Vision</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col 12">
+                <h3>Your one stop shop for all of your medical needs</h3>
+            </div>
+            <!-- Doctor login option -->
+            <div class="col s12 m6">
+                <div class="card pink lighten-2">
+                    <div class="card-content white-text">
+                        <span class="card-title center">Provider Login</span>
+                        <p>If you are a Medical povider register to keep track of all of your patients,
+                            aswell as help new patients find you!
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="waves-effect waves-green btn">Login</a>
+                        <a href="#doc-register" class="btn waves-effect waves-green modal-trigger">Register</a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Patient login option -->
+            <div class="col s12 m6">
+
+
+                <div class="card blue lighten-1">
+                    <div class="card-content white-text">
+                        <span class="card-title center">Patient Login</span>
+                        <p>Finally, one place for all of your medical needs.
+                            Keep track of your doctors, appointments, medical history,
+                            and more!
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="waves-effect waves-green btn">Login</a>
+                        <a href="#patient-register" class="waves-effect waves-green btn modal-trigger">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Doctor Modal Pop up -->
+    <div id="doc-register" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Provider Registration Form</h4>
+            <form>
+                <div class="row">
+                    <!-- Form for Doctor Registration -->
+                    <form class="col s12">
+                        <div class="row">
+                            <!-- New username input -->
+                            <div class="input-field col12">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="username" type="text" class="validate">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="row">
+                            <div class="input-field col md6 s6">
+                                <i class="material-icons prefix">security</i>
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                            <!-- Confirm Password -->
+                            <div class="input-field col s6">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Confirm Password</label>
+                            </div>
+                        </div>
+                        <!-- First and Last Names -->
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">person</i>
+                                <input id="first-name" type="tel" class="validate">
+                                <label for="first-name">First Name</label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <input id="last-name" type="tel" class="validate">
+                                <label for="icon_telephone">Last Name</label>
+                            </div>
+                            <!-- Phone Number -->
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input id="phone" type="text" class="validate">
+                                <label for="phone">Phone Number</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">star</i>
+                                <select>
+                                    <option value="" disabled selected>Specialization</option>
+                                    <option value="1">Primary</option>
+                                    <option value="2">Dental</option>
+                                    <option value="3">Vision</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" input-field col s6">
+                            <i style="display:block;" class="material-icons prefix">description</i>
+                            <h6 style="display:inline-block">Insurance Accepted</h6>
+                            
+                            <p>
+                                
+                                <label>
+                                    <input type="checkbox" />
+                                    <span>Red</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" />
+                                    <span>Blue</span>
+                                </label>
+                            </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+    <!-- Patient Modal Pop up -->
+    <div id="patient-register" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+
+
+<script type="text/javascript">
+    //this makes modals work
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+</script>
+
+</html>
