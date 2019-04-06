@@ -4,10 +4,11 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body class="light-blue lighten-5">
+<body>
     <!-- Nav bar -->
     <nav>
         <div class="blue lighten-1 nav-wrapper">
@@ -21,43 +22,54 @@
     </nav>
     <br>
 
-    <div class="container">
+    <div class="col 12">
+        <h3 class="center">Your one stop shop for all of your medical needs</h3>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="container">
 
-        <div class="row">
-            <div class="col 12">
-                <h3>Your one stop shop for all of your medical needs</h3>
-            </div>
-            <!-- Doctor login option -->
-            <div class="col s12 m6">
-                <div class="card pink lighten-2">
-                    <div class="card-content white-text">
-                        <span class="card-title center">Provider Login</span>
-                        <p>If you are a Medical povider register to keep track of all of your patients,
-                            aswell as help new patients find you!
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" class="waves-effect waves-green btn">Login</a>
-                        <a href="#doc-register" class="btn waves-effect waves-green modal-trigger">Register</a>
-                    </div>
+                <div class="row">
 
+                    <!-- Doctor login option -->
+                    <div class="col s12">
+                        <div class="card pink lighten-2">
+                            <div class="card-content white-text">
+                                <span class="card-title center">Provider Login</span>
+                                <p>If you are a Medical povider register to keep track of all of your patients,
+                                    aswell as help new patients find you!
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" class="waves-effect waves-green btn">Login</a>
+                                <a href="#doc-register" class="btn waves-effect waves-green modal-trigger">Register</a>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Patient login option -->
-            <div class="col s12 m6">
+        </div>
+
+        <!-- Patient login option -->
+
+        <div class="col s6">
+            <div class="container">
+                <div class="col s12">
 
 
-                <div class="card blue lighten-1">
-                    <div class="card-content white-text">
-                        <span class="card-title center">Patient Login</span>
-                        <p>Finally, one place for all of your medical needs.
-                            Keep track of your doctors, appointments, medical history,
-                            and more!
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" class="waves-effect waves-green btn">Login</a>
-                        <a href="#patient-register" class="waves-effect waves-green btn modal-trigger">Register</a>
+                    <div class="card blue lighten-1">
+                        <div class="card-content white-text">
+                            <span class="card-title center">Patient Login</span>
+                            <p>Finally, one place for all of your medical needs.
+                                Keep track of your doctors, appointments, medical history,
+                                and more!
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="waves-effect waves-green btn">Login</a>
+                            <a href="#patient-register" class="waves-effect waves-green btn modal-trigger">Register</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,20 +140,20 @@
                         </div>
                         <div class="row">
                             <div class=" input-field col s6">
-                            <i style="display:block;" class="material-icons prefix">description</i>
-                            <h6 style="display:inline-block">Insurance Accepted</h6>
-                            
-                            <p>
-                                
-                                <label>
-                                    <input type="checkbox" />
-                                    <span>Red</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" />
-                                    <span>Blue</span>
-                                </label>
-                            </p>
+                                <i style="display:block;" class="material-icons prefix">description</i>
+                                <h6 style="display:inline-block">Insurance Accepted</h6>
+
+                                <p>
+
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Red</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Blue</span>
+                                    </label>
+                                </p>
                             </div>
                         </div>
                     </form>
