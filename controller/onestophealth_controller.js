@@ -2,10 +2,10 @@ var express = require("express");
 
 var router = express.Router();
 
-var onestophealth = require("../models/onestophealth");
+var patient = require("../models/patient");
 
-router.get("/id", function(req,res){
-    onestophealth.all(function(data){
+router.get("/:patient_login_name", function(req,res){
+    patient.all(function(data){
         var patientObj = {
             patient: data
         };

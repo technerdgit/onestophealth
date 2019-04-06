@@ -22,10 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       // When an Author is deleted, also delete any associated Posts
       insuranceProvider.belongsToMany(models.patient, { through: models.patient_doctors
       });
-      insuranceProvider.hasMany(models.doctor, {
-        onDelete: "cascade",
-        onUpdate: "cascade"
- });
+      insuranceProvider.belongsToMany(models.doctor, { through: models.patient_doctors });
     };
   
     return insuranceProvider;
