@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes){
     });
 
      patientDoctors.associate =  function(models){
-
+       // patientDoctors.hasMany(models.patients)    
         
      };
     return patientDoctors;
