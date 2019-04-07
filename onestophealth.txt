@@ -12,10 +12,9 @@ create table  patients(
    patitent_zip
    patient_medical_insurance_id
    patient_dental_insurance_id
-   insuraance_provider
+   insurance_provider
    login_name
    login_password
-   
 )
 
 -- Join table of Patient and doctors chosen.
