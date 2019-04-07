@@ -1,6 +1,6 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
-    var Doctor = sequelize.define("doctor", {
+    var Doctor = sequelize.define("doctors", {
       doctor_name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -72,8 +72,8 @@ module.exports = function(sequelize, DataTypes) {
 
     
     Doctor.associate = function(models) {
-      Doctor.belongsToMany(models.patient, { through: models.patient_doctors});
-     Doctor.belongsToMany(models.insurance_provider, { through: models.doctor_insurance});
+      Doctor.belongsToMany(models.patients, { through: models.patient_doctors});
+     Doctor.belongsToMany(models.insurance_providers, { through: models.doctor_insurances});
 
        };
   
