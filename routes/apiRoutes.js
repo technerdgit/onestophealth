@@ -1,4 +1,4 @@
-var Sequelize = require("sequelize");
+// var Sequelize = require("sequelize");
 var db = require("../models");
 
 module.exports = function (app) {
@@ -18,12 +18,16 @@ module.exports = function (app) {
                 var patient_name = dbDoctor[0].patients[i].dataValues.patient_name;
                 var current_patient = dbDoctor[0].patients[i].patient_doctors.dataValues.current_patient;
                 var patient_request = dbDoctor[0].patients[i].patient_doctors.dataValues.patient_request;
+                var patientId = dbDoctor[0].patients[i].patient_doctors.dataValues.patientId;
+                var doctorId = req.params.id;
                 docdata = {
                     current_patient: current_patient,
                     patient_name: patient_name,
-                    patient_request: patient_request
+                    patient_request: patient_request,
+                    patientId: patientId,
+                    doctorId: doctorId
                 };
-                console.log(patient_request);
+                console.log(doctorId);
                 dataObj.push(docdata);
             };
             var doctorObj = {
@@ -34,4 +38,19 @@ module.exports = function (app) {
         });
 
     });
+
+    app.put("/api/patient_doctors/:id", function(req, res) {
+
+        db.patient_doctors.update({
+            patient_request:  false
+         },
+           {
+             where: { patientId: req.body.patientId },
+            returning: true,
+            plain:  true
+        }).then(function() {
+            
+            res.status(200).end();
+        });
+      });
 }
