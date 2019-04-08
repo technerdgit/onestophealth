@@ -5,9 +5,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
 </head>
 
-<body class="light-blue lighten-5">
+<body>
     <!-- Nav bar -->
     <nav>
         <div class="blue lighten-1 nav-wrapper">
@@ -21,48 +22,55 @@
     </nav>
     <br>
 
-    <div class="container">
-
-        <div class="row">
-            <div class="col 12">
-                <h3>Your one stop shop for all of your medical needs!</h3>
-            </div>
-            <!-- Doctor login option -->
-            <div class="col s12 m6">
-                <div class="card pink lighten-2">
-                    <div class="card-content white-text">
-                        <span class="card-title center">Provider Login</span>
-                        <p>If you are a medical provider, please register to keep track of all of your current patients,
-                            as well as discovering and meeting new patients near you!
-                        </p>
+    <div class="col 12">
+        <h3 class="center">Your one stop shop for all of your medical needs!</h3>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="container">
+                <div class="row">
+                    <!-- Doctor login option -->
+                    <div class="col s12">
+                        <div class="card pink lighten-2">
+                            <div class="card-content white-text">
+                                <span class="card-title center">Provider Login</span>
+                                <p>If you are a medical provider, please register to keep track of all of your current
+                                    patients,
+                                    as well as discovering and meeting new patients near you!
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#doc-login" class="btn modal-trigger">Login</a>
+                                <a href="#doc-register" class="btn modal-trigger">Register</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-action">
-                        <a href="#doc-login" class="btn modal-trigger">Login</a>
-                        <a href="#doc-register" class="btn modal-trigger">Register</a>
-                    </div>
-
                 </div>
             </div>
-            <!-- Patient login option -->
-            <div class="col s12 m6">
+        </div>
+        <!-- Patient login option -->
+        <div class="col s6">
+            <div class="container">
+                <div class="col s12">
 
-
-                <div class="card blue lighten-1">
-                    <div class="card-content white-text">
-                        <span class="card-title center">Patient Login</span>
-                        <p>Finally, one place for all of your medical needs.
-                            Keep track of your doctors, appointments, medical history,
-                            and more!
-                        </p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#patient-login" class="btn modal-trigger">Login</a>
-                        <a href="#patient-register" class="btn modal-trigger">Register</a>
+                    <div class="card blue lighten-1">
+                        <div class="card-content white-text">
+                            <span class="card-title center">Patient Login</span>
+                            <p>Finally, one place for all of your medical needs.
+                                Keep track of your doctors, appointments, medical history,
+                                and more!
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#patient-login" class="btn modal-trigger">Login</a>
+                            <a href="#patient-register" class="btn modal-trigger">Register</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- User login modal pop up -->
     <div id="patient-login" class="modal">
         <div class="modal-content">
@@ -77,50 +85,52 @@
                                 <label for="patientUser">Username</label>
                             </div>
                             <div class="row">
-                                    <div class="input-field col12">
-                                        <i class="material-icons prefix">verified_user</i>
-                                        <input id="patientPw" type="text" class="validate">
-                                        <label for="patientPw">Password</label>
-                                    </div>
-                                    <div class="modal-footer">
-                                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sign in</a>
-                                        </div>
+                                <div class="input-field col12">
+                                    <i class="material-icons prefix">verified_user</i>
+                                    <input id="patientPw" type="text" class="validate">
+                                    <label for="patientPw">Password</label>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" id="patient-login"
+                                        class="modal-close waves-effect waves-green btn-flat">Sign in</a>
+                                </div>
                     </form>
                 </div>
             </form>
         </div>
     </div>
-</div> 
-</div>
+    </div>
+    </div>
     <!-- Doctor login modal pop up -->
     <div id="doc-login" class="modal">
-            <div class="modal-content">
-                <h4 class="center">Health Provider Login Page</h4>
-                <form>
-                    <div class="row">
-                        <form class="col s12">
+        <div class="modal-content">
+            <h4 class="center">Health Provider Login Page</h4>
+            <form>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col12">
+                                <i class="material-icons prefix">verified_user</i>
+                                <input id="docUser" type="text" class="validate">
+                                <label for="docUser">Username</label>
+                            </div>
                             <div class="row">
                                 <div class="input-field col12">
                                     <i class="material-icons prefix">verified_user</i>
-                                    <input id="docUser" type="text" class="validate">
-                                    <label for="docUser">Username</label>
+                                    <input id="docPw" type="text" class="validate">
+                                    <label for="docPw">Password</label>
                                 </div>
-                                <div class="row">
-                                        <div class="input-field col12">
-                                            <i class="material-icons prefix">verified_user</i>
-                                            <input id="docPw" type="text" class="validate">
-                                            <label for="docPw">Password</label>
-                                        </div>
-                                        <div class="modal-footer">
-                                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Sign in</a>
-                                            </div>
-                        </form>
-                    </div>
-                </form>
-            </div>
+                                <div class="modal-footer">
+                                    <a href="#!" id="doctor-login"
+                                        class="modal-close waves-effect waves-green btn-flat">Sign in</a>
+                                </div>
+                    </form>
+                </div>
+            </form>
         </div>
     </div>
-</div>
+    </div>
+    </div>
     <!-- Doctor Register Modal Pop up -->
     <div id="doc-register" class="modal">
         <div class="modal-content">
@@ -184,29 +194,21 @@
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class=" input-field col s-6">
-                                <i style="display:block;" class="material-icons prefix">description</i>
-                                <!-- <h6 style="display:inline-block">Insurance Accepted</h6> -->
-                                <h5>Insurances accepted</h5>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span>Red</span>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span>Blue</span>
-                                    </label>
-                                </p>
+                        <div class="input-field col s6">
+                                <i class="material-icons prefix">description</i>
+                                <select multiple>
+                                    <option value="" disabled selected>Insurance Accepted</option>
+                                    <option value="1">HMO</option>
+                                    <option value="2">PPO</option>
+                                    <option value="3">Medi-care</option>
+                                </select>
                             </div>
-                        </div>
                     </form>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Register</a>
+            <a href="#!" id="doctor-register" class="modal-close waves-effect waves-green btn-flat">Register</a>
         </div>
     </div>
     <!-- Patient Modal Pop up -->
@@ -300,7 +302,8 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Register</a>
+                    <a href="#!" id="patient-register"
+                        class="modal-close waves-effect waves-green btn-flat">Register</a>
                 </div>
         </div>
 
