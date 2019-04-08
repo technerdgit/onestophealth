@@ -16,19 +16,20 @@ var db = require("./models");
 var exphbs = require("express-handlebars");
 
 
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
-//
+
+app.use(express.static(__dirname + "/public/"));
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 require("./routes/apiRoutes.js")(app);
-
+require("./routes/htmlRoutes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
