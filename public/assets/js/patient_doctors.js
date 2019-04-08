@@ -8,17 +8,17 @@ $(document).ready(function() {
     $(".decline-patient").on("click", function(){ 
     //$(document).on("click", "decline-patient", declineDeclinePatient);
 
-        alert("pressed decline button")
+        
         var patientId = $(this).data("patientId");
         var doctorId = $(this).data("doctorId");
- 
+        alert("pressed decline button" + patientId, doctorId);
         var updatePatient = {
             patient_request: false,
             patientId: patientId,
             doctorId: doctorId,
             patient_declined: true
           };
-         $.ajax("/api/patient_doctors/" + doctorId  , {
+         $.ajax("/api/patient_doctors/" + patientId , {
              type: "PUT",
              data: updatePatient
         })
@@ -26,6 +26,6 @@ $(document).ready(function() {
             location.reload();
           });
     
+ });
 });
-
     

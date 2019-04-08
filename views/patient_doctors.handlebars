@@ -12,7 +12,6 @@
               <td>{{this.patient_name}}</td>
             </tr>
             {{/if}}
-
             {{/each}}
           </table>
         </div>
@@ -28,11 +27,11 @@
             {{#if patient_request}}
             <tr id="patient{{patientId}}">
               <td>{{this.patient_name}}
-                  <a class="accept-patient waves-effect waves-light btn-small float-right ml-2">
-                    <i  class="material-icons add_box text-center" data-patientId={{patientId}} data-doctorId={{doctorId}}>done</i></a>
+                  <a class="accept-patient btn-small float-right ml-2" data-patientId={{this.patientId}} data-doctorId={{this.doctorId}}>
+                    <i  class="material-icons add_box text-center" >done</i></a>
           
-                  <a class="decline-patient waves-effect waves-light btn-small float-right ml-2">
-                    <i class="material-icons text-center" data-patientId={{patientId}} data-doctorId={{doctorId}}>close</i></a>
+                  <button class="decline-patient btn-small float-right ml-2"  data-patientId={{this.patientId}} data-doctorId={{this.doctorId}} > 
+                  </button>
                 </td>
             </tr>
             {{/if}}
@@ -44,3 +43,5 @@
     </div>
   </div>
 </div>
+
+
