@@ -14,7 +14,7 @@ var PORT = process.env.PORT || 8080;
 // Requiring our models for syncing
 var db = require("./models");
 var exphbs = require("express-handlebars");
-var path = require("path");
+
 
 
 // Sets up the Express app to handle data parsing
@@ -29,13 +29,12 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 require("./routes/apiRoutes.js")(app);
-
+require("./routes/htmlRoutes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
- db.sequelize.sync({ force: true }).then(function() {
+ db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
 });
-g

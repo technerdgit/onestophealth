@@ -63,10 +63,12 @@ module.exports = function (app) {
 
         db.patient_doctors.update({
             patient_request: req.body.patient_request,
-            current_patient: false
+            current_patient: req.body.current_patient,
+            patient_declined: req.body.patient_declined
         },
             {
-                where: { patientId: req.body.patientId },
+                where: { patientId: req.body.patientId,
+                         doctorId: req.body.doctorId },
                 returning: true,
                 plain: true
             }).then(function () {

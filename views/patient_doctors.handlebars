@@ -27,11 +27,10 @@
             {{#if patient_request}}
             <tr id="patient{{patientId}}">
               <td>{{this.patient_name}}
-                  <a class="accept-patient btn-small float-right ml-2" data-patientId={{this.patientId}} data-doctorId={{this.doctorId}}>
+                  <a class="accept-patient btn-small float-right ml-2" name="accept" data-patientId={{this.patientId}} data-doctorId={{this.doctorId}}>
                     <i  class="material-icons add_box text-center" >done</i></a>
-          
-                  <button class="decline-patient btn-small float-right ml-2"  data-patientId={{this.patientId}} data-doctorId={{this.doctorId}} > 
-                  </button>
+                <a class="decline-patient btn-small float-right ml-2" name="decline" data-patientId={{this.patientId}} data-doctorId={{this.doctorId}}>
+                 <i  class="material-icons add_box text-center" >close</i></a>
                 </td>
             </tr>
             {{/if}}
