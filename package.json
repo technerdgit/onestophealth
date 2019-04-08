@@ -1,0 +1,30 @@
+{
+  "name": "onestophealth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "express-handlebars": "^3.0.2",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanwarb/onestophealth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanwarb/onestophealth/issues"
+  },
+  "homepage": "https://github.com/kanwarb/onestophealth#readme"
+}
