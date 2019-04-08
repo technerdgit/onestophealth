@@ -13,13 +13,75 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
+
 </head>
 
 <body>
 	{{{ body }}}
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="js/patient_doctors.js" type="text/javascript"></script>
+<script  src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  
 </body>
+<script>
+	
+$(document).ready(function() {
+/* global moment */
 
+ $(".decline-patient").on("click", function(events){ 
+//$(document).on("click", ".decline-patient", declineDeclinePatient);
+	  events.preventDefault();
+    var patientId = $(this).attr("data-patientId");
+    if(patientId === undefined){
+       console.log("error no patient defined");
+       return;
+    }
+    var doctorId = $(this).attr("data-doctorId");
+	
+    var updatePatient = {
+        patient_request: false,
+        patientId: patientId,
+        doctorId: doctorId,
+        patient_declined: true,
+        current_patient: false
+      };
+     // alert(doctorId);
+     $.ajax("/api/patient_doctors/" + doctorId   , {
+         type: "PUT",
+         data: updatePatient
+    })
+      .then(function(response) {
+		  
+        location.reload();
+      });
+  });
+
+$(".accept-patient").on("click", function(events){ 
+//$(document).on("click", ".decline-patient", declineDeclinePatient);
+	 // events.preventDefault();
+    var patientId = $(this).attr("data-patientId");
+    if(patientId === undefined){
+       console.log("error no patient defined");
+       return;
+    }
+    var doctorId = $(this).attr("data-doctorId");
+	
+    var updatePatient = {
+        patient_request: false,
+        patientId: patientId,
+        doctorId: doctorId,
+        patient_declined: false,
+        current_patient: true
+      };
+     // alert(doctorId);
+     $.ajax("/api/patient_doctors/" + doctorId   , {
+         type: "PUT",
+         data: updatePatient
+    })
+      .then(function(response) {
+		  
+        location.reload();
+      });
+  });
+});
+</script>
 </html>
