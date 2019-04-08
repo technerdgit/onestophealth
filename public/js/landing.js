@@ -11,6 +11,7 @@ $(document).ready(function(){
 			patient_insurance_provider_id: ("#patient-insurance-provider-id").val().trim(),
 			patient_dental_provider_id: ("#patient-dental-provider-id").val().trim()
 		};
+		console.log(newPatient);
 		$.ajax("api/patients",
 			type: "POST",
 			data: newPatient)
@@ -32,6 +33,7 @@ $(document).ready(function(){
 			doctor_login_name: $("#doctor-login-name").val().trim(),
 			doctor_password: $("doctor-password").val().trim()
 		};
+		console.log(newDoctor);
 		$.ajax("api/doctors",
 			type: "POST",
 			data: newDoctor)
