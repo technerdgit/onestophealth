@@ -137,23 +137,17 @@
                                 </select>
 
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class=" input-field col s6">
-                                <i style="display:block;" class="material-icons prefix">description</i>
-                                <h6 style="display:inline-block">Insurance Accepted</h6>
+                        
+                        
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">description</i>
+                                <select>
+                                    <option value="" disabled selected>Insurance Accepted</option>
+                                    <option value="1">HMO</option>
+                                    <option value="2">PPO</option>
+                                    <option value="3">Medi-care</option>
+                                </select>
 
-                                <p>
-
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span>Red</span>
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" />
-                                        <span>Blue</span>
-                                    </label>
-                                </p>
                             </div>
                         </div>
                     </form>
@@ -161,7 +155,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+           <button type="submit" class="waves-effect waves-green btn">Register</button>
         </div>
     </div>
     <!-- Patient Modal Pop up -->
