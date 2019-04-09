@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <nav>
     <div class="blue lighten-1 nav-wrapper">
         <a class="brand-logo center">One Stop Health</a>
@@ -20,3 +21,29 @@
   </div>
   </div>
   </div>
+=======
+
+{{patient}}
+<div class="container">
+  <div class="row">
+    <div class="col s5"><span class="flow-text">
+        <div id="current-doctors" class="current-patient ">
+          <table>
+            <tr>
+              <th>Patient Information</th>
+            </tr>
+            <tr>
+            {{#each patients}}
+              <td>Patient Name: {{this.patient_name}}</td>
+              <td>Patient Primary Address {{this.patient_primary_address1}}</td>
+            {{/each}}
+            </tr>
+          </table>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+>>>>>>> 90e4d233ade368eeeb54d61b2f5fc28d48d5bb54
