@@ -33,7 +33,7 @@ $(document).ready(function(){
 			// doctor_primary_address2: $(".doctor-address2").val().trim(),
 			doctor_city: $(".doctor-city").val().trim(),
 			doctor_zip: $(".doctor-zip").val().trim(),
-			doctor_specilization: $(".doctor-specialization").val(),
+			doctor_specialization: $(".doctor-specialization").val(),
 			doctor_login_name: $(".doctor-login-name").val().trim(),
 			doctor_login_password: $(".doctor-login-password").val().trim()
 		};
