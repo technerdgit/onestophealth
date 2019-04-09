@@ -1,9 +1,9 @@
 use onestophealth;
 
-insert into doctors (doctor_name,doctor_primary_address1,doctor_city,doctor_state,doctor_zip,doctor_specialization,doctor_login_name,doctor_login_password,doctor_type,createdAt,updatedAt)
+insert into doctors (doctor_name,doctor_primary_address1,doctor_city,doctor_state,doctor_zip,doctor_specilization,doctor_login_name,doctor_login_password,doctor_type,createdAt,updatedAt)
 values("John C","1500 De Anza Blvd","Cupertino","CA","95050","General","johnc","test123ABC",'Medical', now(), now());
 
-insert into doctors (doctor_name,doctor_primary_address1,doctor_city,doctor_state,doctor_zip,doctor_specialization,doctor_login_name,doctor_login_password,doctor_type,createdAt,updatedAt)
+insert into doctors (doctor_name,doctor_primary_address1,doctor_city,doctor_state,doctor_zip,doctor_specilization,doctor_login_name,doctor_login_password,doctor_type,createdAt,updatedAt)
 values("Sernea Berna","100 Pearl Dr","San Jose","CA","95135","Dentist","sernea","test123ABC",'Dentist', now(), now());
 
 
@@ -31,7 +31,7 @@ values("Voldimat","Dark side Blvd","Los Angeles","CA","93110","2","4","322234234
 
 insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(1,1,true,now(),now());
 insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(2,1,true,now(),now());
-insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(5,4,true,now(),now());
+insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(2,2,true,now(),now());
 
 insert into patient_insurances(patientId,insuranceProviderId,createdAt,updatedAt) values(1,2,now(),now());
 insert into patient_insurances(patientId,insuranceProviderId,createdAt,updatedAt) values(2,1,now(),now());
