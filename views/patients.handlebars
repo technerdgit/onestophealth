@@ -14,18 +14,18 @@
     <div class="col s5"><span class="flow-text">
         <div id="current-doctors" class="current-patient ">
           <table>
-            <tr>
-              <th>Patient Information</th>
-            </tr>
+            {{!-- <tr>
+              <th>Patient</th>
+            </tr> --}}
             <tr>
               <button class="btn waves-effect waves-light" id="patientInfo" type="submit" name="action">Patient Info
                 <i class="material-icons right">favorite</i>
-              </button>
+              </button></tr>
               {{#each patients}}
-              <td>Patient Name: {{this.patient_name}}</td>
-              <td>Patient Primary Address {{this.patient_primary_address1}}</td>
+              <tr><td>Patient Name: {{this.patient_name}}</td></tr>
+              <tr><td>Patient Primary Address {{this.patient_primary_address1}}</td></tr>
               {{/each}}
-            </tr>
+
           </table>
         </div>
       </span>
