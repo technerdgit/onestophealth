@@ -100,19 +100,15 @@ module.exports = function (app) {
         db.doctors.create({
             doctor_name: req.body.doctor_name,
             doctor_type: req.body.doctor_type,
-            doctor_specilization: req.body.doctor_specilization,
+            doctor_specialization: req.body.doctor_specialization,
             doctor_primary_address1: req.body.doctor_primary_address1,
             doctor_city: req.body.doctor_city,
             doctor_state: req.body.doctor_state,
             doctor_zip: req.body.doctor_zip,
             doctor_login_name: req.body.doctor_login_name,
             doctor_login_password: req.body.doctor_login_password 
-        }).then(function (err) {
-            if (err) {
-                res.status(500).end();
-            }
+        }).then(function (results) {
             res.json(results);
-            res.status(200).end();
         });
     });
 

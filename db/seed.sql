@@ -31,7 +31,7 @@ values("Voldimat","Dark side Blvd","Los Angeles","CA","93110","2","4","322234234
 
 insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(1,1,true,now(),now());
 insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(2,1,true,now(),now());
-insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(5,4,true,now(),now());
+insert into patient_doctors(patientId,doctorId,current_patient,createdAt,updatedAt) values(2,2,true,now(),now());
 
 insert into patient_insurances(patientId,insuranceProviderId,createdAt,updatedAt) values(1,2,now(),now());
 insert into patient_insurances(patientId,insuranceProviderId,createdAt,updatedAt) values(2,1,now(),now());

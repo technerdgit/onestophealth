@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       doctor_specialization: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       doctor_primary_address1: {
         type: DataTypes.STRING,
