@@ -107,12 +107,8 @@ module.exports = function (app) {
             doctor_zip: req.body.doctor_zip,
             doctor_login_name: req.body.doctor_login_name,
             doctor_login_password: req.body.doctor_login_password 
-        }).then(function (err) {
-            if (err) {
-                res.status(500).end();
-            }
+        }).then(function (results) {
             res.json(results);
-            res.status(200).end();
         });
     });
 
