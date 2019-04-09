@@ -20,7 +20,8 @@ module.exports = function (app) {
     app.get("/api/patientsinfo", function (req, res) {
         db.patients.findAll({}
             ).then(function (data){
-                res.render('patients', data);
+            res.render("patients", data)
+            //   return res.json(data);
             });
     });
     // Find the patients based on his login id

@@ -1,19 +1,28 @@
 $(document).ready(function() {
-    $(document).on("click", "#patientInfo", viewPatientInfo);
-})
+    $(document).on("click", "#patientInfo", displayPatientInfo);
+        function displayPatientInfo () {
 
-function viewPatientInfo () {
-    var patientNames = $(this).data("patientNames");
-    var patientsAddress = $(this).data("patientsAddress");
+        console.log("Click llistener!")
 
-    var pInfo = {
-        patientNames = patientNames,
-        patientsAddress = patientsAddress
-    };
+        var pInfo = {
+            patient_name: $(".patient-first-name")+ $(".patient-last-name"),
+            patient_primary_address1: $(".patient-address1"),
+            patientId,
+        };
+        // console.log(pInfo);
+        // $.ajax("/api/patientsinfo/" + patientId, {
+        //     type: "GET",
+        //     success: function(result) {
+        //         alert('ok');
+        //       },
+        //       error: function(result) {
+        //         alert('error');
+        //       }
+        // })
+        // .then (
+        //     function(response){
+        //     })
+        //   ;
+}});
+;
 
-    $.ajax("/api/patients/" + patientId   , {
-        type: "GET",
-        data: pInfo
-    
-    })
-}
