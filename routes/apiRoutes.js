@@ -5,17 +5,23 @@ module.exports = function (app) {
 
     // Find the doctor based on his login using his id
     app.get("/api/doctors/:id", function (req, res) {
-        db.doctors.findAll({}
-        ).then(function (data) {
-            res.json(data);
+        db.doctors.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(data){
+            res.render("doctors", data);
         });
     });
 
     // Find the patients based on his login id
     app.get("/api/patient/:id", function (req, res) {
-        db.patients.findAll({}
-        ).then(function (data) {
-            res.json(data);
+        db.patients.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(data){
+            res.render("patients", data);
         });
     });
 
@@ -80,11 +86,20 @@ module.exports = function (app) {
     // Insert record into the Doctors table using doctors model
     app.post("/api/doctors", function (req, res) {
         db.doctors.create({
-
+            doctor_name: req.body.doctor_name,
+            doctor_type: req.body.doctor_type,
+            doctor_specilization: req.body.doctor_specilization,
+            doctor_primary_address1: req.body.doctor_primary_address1,
+            doctor_city: req.body.doctor_city,
+            doctor_state: req.body.doctor_state,
+            doctor_zip: req.body.doctor_zip,
+            doctor_login_name: req.body.doctor_login_name,
+            doctor_login_password: req.body.doctor_login_password 
         }).then(function (err) {
             if (err) {
                 res.status(500).end();
             }
+            res.json(results);
             res.status(200).end();
         });
     });
@@ -92,11 +107,22 @@ module.exports = function (app) {
     // Insert record into the Patient table using patients model
     app.post("/api/patients", function (req, res) {
         db.doctors.create({
-
+            patient_name: req.body.patient_name,
+            patient_primary_address1: req.body.patient_primary_address1,
+            patient_city: req.body.patient_city,
+            patient_state: req.body.patient_state,
+            patient_zip: req.body.patient_zip,
+            patient_medical_provider_id: req.body.patient_medical_provider_id,
+            patient_medical_insurance_id: req.body.patient_medical_insurance_id,
+            patient_dental_provider_id: req.body.patient_dental_provider_id,
+            patient_dental_insurance_id: req.body.patient_dental_insurance_id,
+            patient_login_name: req.body.patient_login_name,
+            patient_login_password: req.body.patient_login_password
         }).then(function (err) {
             if (err) {
                 res.status(500).end();
             }
+            res.json(results);
             res.status(200).end();
         });
     });
