@@ -14,12 +14,13 @@ $(document).ready(function(){
 			patient_dental_provider_id: $(".patient-dental-provider-id").val()
 		};
 		console.log(newPatient);
-		$.ajax("api/patients", {
+		$.ajax("/api/patients", {
 			type: "POST",
 			data: newPatient
 	}).then(
-	function(){
-		location.reload();
+	function(response){
+		parent.window.location="/api/patient/"+ response.id;
+		//	window.location.replace("/api/patient/"+ response.id);
 	});
   });
 });
@@ -42,7 +43,7 @@ $(document).ready(function(){
 			data: newDoctor
 	}).then(
 	function(){
-		res.redirect("/");
+		parent.window.location="/api/doctor/"+ response.id;
 	});
   });
 });
