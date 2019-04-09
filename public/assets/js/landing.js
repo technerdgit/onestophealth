@@ -14,11 +14,11 @@ $(document).ready(function(){
 			patient_dental_provider_id: $(".patient-dental-provider-id").val()
 		};
 		console.log(newPatient);
-		$.ajax({
-			url: "api/patients",
+		$.ajax("api/patients", {
 			type: "POST",
 			data: newPatient
-	}).then(function(){
+	}).then(
+	function(){
 		res.redirect("/");
 	});
   });
@@ -37,11 +37,11 @@ $(document).ready(function(){
 			doctor_login_password: $(".doctor-login-password").val()
 		};
 		console.log(newDoctor);
-		$.ajax({
-			url: "api/doctors",
+		$.ajax("api/doctors", {
 			type: "POST",
 			data: newDoctor
-	}).then(function(){
+	}).then(
+	function(){
 		res.redirect("/");
 	});
   });
