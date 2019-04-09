@@ -1,20 +1,22 @@
 <nav>
-        <div class="blue lighten-1 nav-wrapper">
-            <a class="brand-logo center">One Stop Health</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="#">Our Vision</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-<div class="container">
+  <div class="blue lighten-1 nav-wrapper">
+    <img src="/assets/images/logo-removebg.png" class="brand-logo center">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="#">Our Vision</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <h5 class="right nav-name">One Stop Med</h5>
+  </div>
+</nav>
+<br>
+<div class="container pink lighten-4 z-depth-2">
   <div class="row">
     <div class="col s5"><span class="flow-text">
         <div id="current-doctors" class="current-patient ">
-          <table>
+          <table class="highlight centered">
             <tr>
-              <th>Current Patients</th>
+              <th class="center">Current Patients</th>
             </tr>
             {{#each doctors}}
             {{#if current_patient}}
@@ -27,21 +29,23 @@
         </div>
       </span>
     </div>
-    <div class="col s6"><span class="flow-text">
+    <div class="col s6"><span class="flow-text blue lighten 4">
         <div id="new-patient-request" class="new-patient-request ">
-          <table>
+          <table class="highlight centered">
             <tr>
-              <th>New Patients Requests</th>
+              <th class="center">New Patients Requests</th>
             </tr>
             {{#each doctors}}
             {{#if patient_request}}
             <tr id="patient{{patientId}}">
               <td>{{this.patient_name}}
-                  <a class="accept-patient btn-small float-right ml-2" name="accept" data-patientId={{this.patientId}} data-doctorId={{this.doctorId}}>
-                    <i  class="material-icons add_box text-center" >done</i></a>
-                <a class="decline-patient btn-small float-right ml-2" name="decline" data-patientId={{this.patientId}} data-doctorId={{this.doctorId}}>
-                 <i  class="material-icons add_box text-center" >close</i></a>
-                </td>
+                <a class="accept-patient btn-small float-right ml-2" name="accept" data-patientId={{this.patientId}}
+                  data-doctorId={{this.doctorId}}>
+                  <i class="material-icons add_box text-center">done</i></a>
+                <a class="decline-patient btn-small float-right ml-2" name="decline" data-patientId={{this.patientId}}
+                  data-doctorId={{this.doctorId}}>
+                  <i class="material-icons add_box text-center">close</i></a>
+              </td>
             </tr>
             {{/if}}
 
@@ -52,5 +56,3 @@
     </div>
   </div>
 </div>
-
-
