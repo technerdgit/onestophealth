@@ -11,6 +11,12 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/patientsinfo", function (req, res) {
+        db.patients.findAll({}
+            ).then(function (data){
+                res.render('patients', data);
+            });
+    });
     // Find the patients based on his login id
     app.get("/api/patient/:id", function (req, res) {
         db.patients.findAll({}

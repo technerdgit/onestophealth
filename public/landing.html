@@ -196,14 +196,14 @@
                             </div>
                         </div>
                         <div class="input-field col s6">
-                                <i class="material-icons prefix">description</i>
-                                <select multiple>
-                                    <option value="" disabled selected>Insurance Accepted</option>
-                                    <option value="1">HMO</option>
-                                    <option value="2">PPO</option>
-                                    <option value="3">Medi-care</option>
-                                </select>
-                            </div>
+                            <i class="material-icons prefix">description</i>
+                            <select multiple>
+                                <option value="" disabled selected>Insurance Accepted</option>
+                                <option value="1">HMO</option>
+                                <option value="2">PPO</option>
+                                <option value="3">Medi-care</option>
+                            </select>
+                        </div>
                     </form>
                 </div>
             </form>
@@ -251,7 +251,7 @@
 
                             <div class="input-field col s6">
                                 <input id="last-name" type="tel" class="validate">
-                                <label for="icon_telephone">Last Name</label>
+                                <label for="last-name">Last Name</label>
                             </div>
                             <!-- Phone Number -->
                         </div>
@@ -266,7 +266,24 @@
                             <div class="input-field col12">
                                 <i class="material-icons prefix">navigation</i>
                                 <input id="address" type="text" class="validate">
-                                <label for="address">Address</label>
+                                <label for="address">Address Street</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field s6">
+                                <i class="material-icons prefix">navigation</i>
+                                <input id="city" type="text" class="validate">
+                                <label for="city">City</label>
+                            </div>
+                            <div class="input-field s3">
+                                <i class="material-icons prefix">navigation</i>
+                                <input id="state" type="text" class="validate">
+                                <label for="state">State</label>
+                            </div>
+                            <div class="input-field s3">
+                                <i class="material-icons prefix">navigation</i>
+                                <input id="zip" type="text" class="validate">
+                                <label for="zip">Zip Code</label>
                             </div>
                         </div>
                         <div class="row">
@@ -307,11 +324,9 @@
                         class="modal-close waves-effect waves-green btn-flat">Register</a>
                 </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
     </div>
-
+</form>
+</form>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
@@ -331,4 +346,3 @@
 </script>
 
 </html>
-
