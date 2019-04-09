@@ -40,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
             len: [5]
         }
       } ,
-      patient_medial_provider_id: {
+      patient_medical_provider_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
