@@ -43,7 +43,7 @@ $(document).ready(function(){
 			data: newDoctor
 	}).then(
 	function(response){
-		parent.window.location="/api/doctor/"+ response.id;
+		parent.window.location="/api/doctors/"+ response.id;
 	});
   });
 });
