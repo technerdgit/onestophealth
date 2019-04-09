@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
             len: [1]
         }
       } ,
-      doctor_specilization: {
+      doctor_specialization: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
