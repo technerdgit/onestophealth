@@ -12,9 +12,9 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING(10),
         allowNull: true
       } ,
-      doctor_specialization: {
+      doctor_specilization: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       doctor_primary_address1: {
         type: DataTypes.STRING,
