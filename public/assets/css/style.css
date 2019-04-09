@@ -1,10 +1,16 @@
 body{
-    background-image: url("../assets/images/home-bg.png");
+    background-image: url("../images/home-bg.png");
     background-size: cover;
 }
 
 .brand-logo{
+
     height: 50px;
     width: auto;
     margin-top: 5px;
+}
+
+.nav-name{
+    margin-right: 15px;
+   
 }
