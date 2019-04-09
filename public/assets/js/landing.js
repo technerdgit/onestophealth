@@ -1,4 +1,5 @@
-$(document).ready(function(){
+
+$(function(){
 	$(".patient-register").on("click", function(){
 		var newPatient = {
 			patient_name: $(".patient-first-name").val().trim() + " " + $(".patient-last-name").val().trim(),
@@ -22,9 +23,8 @@ $(document).ready(function(){
 		res.redirect("/");
 	});
   });
-});
 
-$(document).ready(function(){
+// $(document).ready(function(){
 	$(".doctor-register").on("click", function() {
 		var newDoctor = {
 			doctor_name: $(".doctor-first-name").val().trim() + " " + $(".doctor-last-name").val().trim(),
@@ -37,6 +37,7 @@ $(document).ready(function(){
 			doctor_login_password: $(".doctor-login-password").val()
 		};
 		console.log(newDoctor);
+
 		$.ajax("api/doctors", {
 			type: "POST",
 			data: newDoctor
@@ -46,4 +47,3 @@ $(document).ready(function(){
 	});
   });
 });
-
