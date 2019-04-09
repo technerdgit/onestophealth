@@ -100,7 +100,7 @@ module.exports = function (app) {
         db.doctors.create({
             doctor_name: req.body.doctor_name,
             doctor_type: req.body.doctor_type,
-            doctor_specilization: req.body.doctor_specilization,
+            doctor_specialization: req.body.doctor_specialization,
             doctor_primary_address1: req.body.doctor_primary_address1,
             doctor_city: req.body.doctor_city,
             doctor_state: req.body.doctor_state,
