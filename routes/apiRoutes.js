@@ -112,11 +112,10 @@ module.exports = function (app) {
 
     // Insert record into the Patient table using patients model
     app.post("/api/patients", function (req, res) {
-        db.doctors.create({
+        db.patients.create({
             patient_name: req.body.patient_name,
             patient_primary_address1: req.body.patient_primary_address1,
             patient_city: req.body.patient_city,
-            patient_state: req.body.patient_state,
             patient_zip: req.body.patient_zip,
             patient_medical_provider_id: req.body.patient_medical_provider_id,
             patient_medical_insurance_id: req.body.patient_medical_insurance_id,
@@ -124,12 +123,8 @@ module.exports = function (app) {
             patient_dental_insurance_id: req.body.patient_dental_insurance_id,
             patient_login_name: req.body.patient_login_name,
             patient_login_password: req.body.patient_login_password
-        }).then(function (err) {
-            if (err) {
-                res.status(500).end();
-            }
+        }).then(function (results) {
             res.json(results);
-            res.status(200).end();
         });
     });
 }

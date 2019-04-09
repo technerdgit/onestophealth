@@ -19,7 +19,7 @@ $(document).ready(function(){
 			data: newPatient
 	}).then(
 	function(){
-		res.redirect("/");
+		location.reload();
 	});
   });
 });

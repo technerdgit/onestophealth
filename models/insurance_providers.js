@@ -3,17 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     var insuranceProvider = sequelize.define("insurance_providers", {
       provider_name: {
           type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-              len: [1]
-          }
+          allowNull: false
       },
       provider_type: {
           type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-              len: [1]
-          }
+          allowNull: true
       }
     });
   

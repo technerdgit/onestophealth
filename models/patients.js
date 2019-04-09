@@ -3,17 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     var Patient = sequelize.define("patients", {
       patient_name: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [4]
-        }
+        allowNull: false
       } ,
       patient_primary_address1: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1]
-        }
+        allowNull: false
       } ,
       patient_primary_address2: {
         type: DataTypes.STRING,
@@ -21,66 +15,39 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       patient_city: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1]
-        }
+        allowNull: false
       } ,
       patient_state: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1]
-        }
+        allowNull: true
       } ,
       patient_zip: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            len: [5]
-        }
+        allowNull: false
       } ,
       patient_medical_provider_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            len: [7]
-        }
+        allowNull: false
       } ,
       patient_medical_insurance_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            len: [10]
-        }
+        allowNull: false
       } ,
       patient_dental_provider_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            len: [7]
-        }
+        allowNull: false
       } ,
       patient_dental_insurance_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-            len: [10]
-        }
+        allowNull: false
       } ,
       patient_login_name: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [8]
-        }
+        allowNull: false
       } ,
       patient_login_password: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [8]
-        }
+        allowNull: false
       } 
     });
   
