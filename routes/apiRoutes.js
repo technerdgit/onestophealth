@@ -10,7 +10,10 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then(function(data){
-            res.render("doctors", data);
+            var doctorObj = {
+                doctors: data
+            };
+            res.render("doctors", doctorObj);
         });
     });
 
@@ -21,7 +24,10 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then(function(data){
-            res.render("patients", data);
+            var patientObj = {
+                patients: data
+            };
+            res.render("patients", patientObj);
         });
     });
 
