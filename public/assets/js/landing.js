@@ -1,5 +1,9 @@
 $(document).ready(function(){
 	$(".patient-register").on("click", function(){
+		if ($("#password").val() !== $("#confirm-password").val()) {
+			alert("error. password mismatch, please re-enter");
+			return;
+		} else if ()
 		var newPatient = {
 			patient_name: $(".patient-first-name").val().trim() + " " + $(".patient-last-name").val().trim(),
 			patient_primary_address1: $(".patient-address1").val().trim(),
@@ -27,6 +31,10 @@ $(document).ready(function(){
 
 // $(document).ready(function(){
 	$(".doctor-register").on("click", function() {
+		if ($("#password").val() !== $("#confirm-password").val()) {
+			alert("error. password mismatch, please re-enter");
+			return;
+		}
 		var insuranceAcceptedObj = $(".doctor-insurance-accepted").val()
 		var insuranceAcceptedStr = insuranceAcceptedObj.toString()
 		var newDoctor = {
