@@ -1,4 +1,8 @@
 $(document).ready(function(){
+
+	
+
+	//New account creation for patient 
 	$(".patient-register").on("click", function(){
 		var newPatient = {
 			patient_name: $(".patient-first-name").val().trim() + " " + $(".patient-last-name").val().trim(),
@@ -26,6 +30,7 @@ $(document).ready(function(){
 // });
 
 // $(document).ready(function(){
+	//new account creation for doctor
 	$(".doctor-register").on("click", function() {
 		var insuranceAcceptedObj = $(".doctor-insurance-accepted").val()
 		var insuranceAcceptedStr = insuranceAcceptedObj.toString()
