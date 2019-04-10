@@ -1,7 +1,16 @@
 body{
-    background-image: url("../images/home-bg.png");
+    background-image: url("../images/home-bg.jpg");
     background-size: cover;
 }
+
+.change-font{
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.transbox{
+    opacity: 0.8;
+}
+
 
 .brand-logo{
 
