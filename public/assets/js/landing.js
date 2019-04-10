@@ -1,4 +1,8 @@
 $(document).ready(function(){
+
+	
+
+	//New account creation for patient 
 	$(".patient-register").on("click", function(){
 		if ($("#password").val() !== $("#confirm-password").val()) {
 			alert("error. password mismatch, please re-enter");
@@ -30,6 +34,7 @@ $(document).ready(function(){
 // });
 
 // $(document).ready(function(){
+	//new account creation for doctor
 	$(".doctor-register").on("click", function() {
 		if ($("#password").val() !== $("#confirm-password").val()) {
 			alert("error. password mismatch, please re-enter");
