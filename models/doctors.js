@@ -43,7 +43,11 @@ module.exports = function(sequelize, DataTypes) {
       doctor_login_password: {
         type: DataTypes.STRING,
         allowNull: false
-      } 
+      } ,
+      doctor_insurance_accepted: {
+        type: DataTypes.STRING,
+        allowNull: true
+      }
     });
 
     

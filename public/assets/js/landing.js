@@ -23,19 +23,23 @@ $(document).ready(function(){
 		//	window.location.replace("/api/patient/"+ response.id);
 	});
   });
-});
+// });
 
-$(document).ready(function(){
+// $(document).ready(function(){
 	$(".doctor-register").on("click", function() {
+		var insuranceAcceptedObj = $(".doctor-insurance-accepted").val()
+		var insuranceAcceptedStr = insuranceAcceptedObj.toString()
 		var newDoctor = {
 			doctor_name: $(".doctor-first-name").val().trim() + " " + $(".doctor-last-name").val().trim(),
 			doctor_primary_address1: $(".doctor-address1").val().trim(),
 			// doctor_primary_address2: $(".doctor-address2").val().trim(),
 			doctor_city: $(".doctor-city").val().trim(),
 			doctor_zip: $(".doctor-zip").val().trim(),
-			doctor_specialization: $(".doctor-specialization").val(),
+			doctor_specialization: $(".doctor-specialization").val().trim(),
+			doctor_type: $(".doctor-type").val(),
 			doctor_login_name: $(".doctor-login-name").val().trim(),
-			doctor_login_password: $(".doctor-login-password").val().trim()
+			doctor_login_password: $(".doctor-login-password").val().trim(),
+			doctor_insurance_accepted: insuranceAcceptedStr
 		};
 		console.log(newDoctor);
 		$.ajax("api/doctors", {
