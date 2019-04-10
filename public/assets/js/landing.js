@@ -7,7 +7,7 @@ $(document).ready(function(){
 		if ($("#password").val() !== $("#confirm-password").val()) {
 			alert("error. password mismatch, please re-enter");
 			return;
-		} else if ()
+		}
 		var newPatient = {
 			patient_name: $(".patient-first-name").val().trim() + " " + $(".patient-last-name").val().trim(),
 			patient_primary_address1: $(".patient-address1").val().trim(),

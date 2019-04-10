@@ -211,7 +211,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">star</i>
-                                <select class="doctor-type" required>
+                                <select required class="doctor-type">
                                     <option value="" disabled selected>Type</option>
                                     <option value="PCP">Primary</option>
                                     <option value="Dentist">Dental</option>
@@ -241,7 +241,7 @@
             </form>
         </div>
         <div class="modal-footer doctor-register">
-            <button type="sumbit" id="doctor-register"
+            <button type="submit" id="doctor-register"
                 class="waves-effect waves-green btn-flat">Register</button>
         </div>
     </div>
@@ -270,7 +270,7 @@
                             </div>
                             <!-- Confirm Password -->
                             <div class="input-field col s6">
-                                <input id="confirm-password" type="password" class="validate" required>
+                                <input id="confirm-password" type="password" class="validate patient-password" required>
                                 <label for="confirm-password">Confirm Password</label>
                             </div>
                         </div>
@@ -318,7 +318,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">local_pharmacy</i>
-                                <select class="patient-medical-provider-id" required>
+                                <select required class="patient-medical-provider-id">
                                     <option value="" disabled selected>Medical Insurance Provider</option>
                                     <option value="1">Kaiser</option>
                                     <option value="2">Blue Cross</option>
@@ -334,7 +334,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">tag_faces</i>
-                                <select class="patient-dental-provider-id" required>
+                                <select required class="patient-dental-provider-id">
                                     <option value="" disabled selected>Dental Insurance Provider</option>
                                     <option value="1">Delta Dental</option>
                                     <option value="2">Aetna Dental</option>
