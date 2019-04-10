@@ -38,8 +38,23 @@
    <div class="row">
   <form type="form-controls">
       <label for="searchDoctor"><strong style="font-size: 2em">Find Doctor near me</strong></label>
-      <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-50">
+      <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-50 searching-doctor">
       <a class="waves-effect waves-light btn-small bg-info"><i class="material-icons">search</i></a>
   </form>
-  </div>
 </div>
+</div>
+
+  {{#each doctors}}
+  <tr><td><strong>Name</strong></td><td>{{this.doctor_name}}</td>/tr>
+  <tr><td><strong>Address</strong></td><td>{{this.doctor_primary_address1}}</td>/tr>
+  <tr><td><strong>City</strong></td><td>{{this.doctor_city}}</td>/tr>
+  <tr><td><strong>Zip</strong></td><td>{{this.doctor_zip}}</td>/tr>
+  <hr>
+  <form method="POST" id="searchDoctor">
+    <input type="button" id="searchDoctor" class="searching-doctor">
+  </form>
+  {{/each}}
+  <h5 class="text-center">Doctors nearby</h5> 
+  <br>
+  <h5 class="text-center">Doctor info: <br> {{this.doctors}}</h5>
+  

@@ -17,6 +17,22 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/doctors/zip/:code", function (req, res) {
+
+        db.doctors.findAll({
+            where: {
+                doctor_zip: req.params.code
+            }
+        }).then(function(data){
+            var doctorObj = {
+                doctors: data
+            };
+            res.json(doctorObj);
+            // could do a res.render to doctors
+        });
+       
+    });
+
     app.get("/api/patientsinfo", function (req, res) {
         db.patients.findAll({}
             ).then(function (data){
