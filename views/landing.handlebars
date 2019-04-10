@@ -146,7 +146,7 @@
                             <!-- New username input -->
                             <div class="input-field col12">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="username" type="text" class="validate doctor-login-name" required>
+                                <input id="doctor-username" type="text" class="validate doctor-login-name" required>
                                 <label for="username">Username</label>
                             </div>
                         </div>
@@ -154,12 +154,12 @@
                         <div class="row">
                             <div class="input-field col md6 s6">
                                 <i class="material-icons prefix">security</i>
-                                <input id="password" type="password" class="validate doctor-login-password" required>
+                                <input id="doctor-password" type="password" class="validate doctor-login-password" required>
                                 <label for="password">Password</label>
                             </div>
                             <!-- Confirm Password -->
                             <div class="input-field col s6">
-                                <input id="confirm-password" type="password" class="validate doctor-login-password"
+                                <input id="confirm-doctor-password" type="password" class="validate doctor-login-password"
                                     required>
                                 <label for="confirm-password">Confirm Password</label>
                             </div>
@@ -168,12 +168,12 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">person</i>
-                                <input id="first-name" type="tel" class="validate doctor-first-name" required>
+                                <input id="doctor-first-name" type="tel" class="validate doctor-first-name" required>
                                 <label for="first-name">First Name</label>
                             </div>
 
                             <div class="input-field col s6">
-                                <input id="last-name" type="tel" class="validate doctor-last-name" required>
+                                <input id="doctor-last-name" type="tel" class="validate doctor-last-name" required>
                                 <label for="icon_telephone">Last Name</label>
                             </div>
                             <!-- Phone Number -->
@@ -181,28 +181,28 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">phone</i>
-                                <input id="phone" type="text" class="validate doctor-phone" required>
+                                <input id="doctor-phone" type="text" class="validate doctor-phone" required>
                                 <label for="phone">Phone Number</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">navigation</i>
-                                <input id="address" type="text" class="validate doctor-address1" required>
+                                <input id="doctor_address" type="text" class="validate doctor-address1" required>
                                 <label for="address">Address Street</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">navigation</i>
-                                <input id="city" type="text" class="validate doctor-city" required>
+                                <input id="doctor_city" type="text" class="validate doctor-city" required>
                                 <label for="city">City</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6 ">
                                 <i class="material-icons prefix">navigation</i>
-                                <input id="zip" type="number" min="10000" max="99999" class="validate doctor-zip"
+                                <input id="doctor-zip" type="number" min="10000" max="99999" class="validate doctor-zip"
                                     required>
                                 <label for="zip">Zip</label>
                             </div>
@@ -211,7 +211,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">star</i>
-                                <select class="doctor-type" required>
+                                <select required class="doctor-type">
                                     <option value="" disabled selected>Type</option>
                                     <option value="PCP">Primary</option>
                                     <option value="Dentist">Dental</option>
@@ -241,7 +241,7 @@
             </form>
         </div>
         <div class="modal-footer doctor-register">
-            <button type="sumbit" id="doctor-register"
+            <button type="submit" id="doctor-register"
                 class="waves-effect waves-green btn-flat">Register</button>
         </div>
     </div>
@@ -257,7 +257,7 @@
                             <!-- New username input -->
                             <div class="input-field col12">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="username" type="text" class="validate patient-username" required>
+                                <input id="patient-username" type="text" class="validate patient-username" required>
                                 <label for="username">Username</label>
                             </div>
                         </div>
@@ -265,12 +265,12 @@
                         <div class="row">
                             <div class="input-field col md6 s6">
                                 <i class="material-icons prefix">security</i>
-                                <input id="password" type="password" class="validate patient-password" required>
+                                <input id="patient-password" type="password" class="validate patient-password" required>
                                 <label for="password">Password</label>
                             </div>
                             <!-- Confirm Password -->
                             <div class="input-field col s6">
-                                <input id="confirm-password" type="password" class="validate" required>
+                                <input id="confirm-patient-password" type="password" class="validate patient-password" required>
                                 <label for="confirm-password">Confirm Password</label>
                             </div>
                         </div>
@@ -278,12 +278,12 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">person</i>
-                                <input id="first-name" type="tel" class="validate patient-first-name" required>
+                                <input id="patient-first-name" type="tel" class="validate patient-first-name" required>
                                 <label for="first-name">First Name</label>
                             </div>
 
                             <div class="input-field col s6">
-                                <input id="last-name" type="tel" class="validate patient-last-name" required>
+                                <input id="patient-last-name" type="tel" class="validate patient-last-name" required>
                                 <label for="last-name">Last Name</label>
                             </div>
                             <!-- Phone Number -->
@@ -291,26 +291,26 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">phone</i>
-                                <input id="phone" type="text" class="validate patient-phone" required>
+                                <input id="patient-phone" type="text" class="validate patient-phone" required>
                                 <label for="phone">Phone Number</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col12">
                                 <i class="material-icons prefix">navigation</i>
-                                <input id="address" type="text" class="validate patient-address1" required>
+                                <input id="patient_address" type="text" class="validate patient-address1" required>
                                 <label for="address">Address Street</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field s6">
                                 <i class="material-icons prefix">navigation</i>
-                                <input id="city" type="text" class="validate patient-city" required>
+                                <input id="patient_city" type="text" class="validate patient-city" required>
                                 <label for="city">City</label>
                             </div>
                             <div class="input-field s6">
                                 <i class="material-icons prefix">navigation</i>
-                                <input id="zip" type="number" min="10000" max="99999" class="validate patient-zip"
+                                <input id="patient-zip" type="number" min="10000" max="99999" class="validate patient-zip"
                                     required>
                                 <label for="zip">Zip Code</label>
                             </div>
@@ -318,7 +318,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">local_pharmacy</i>
-                                <select class="patient-medical-provider-id" required>
+                                <select required class="patient-medical-provider-id">
                                     <option value="" disabled selected>Medical Insurance Provider</option>
                                     <option value="1">Kaiser</option>
                                     <option value="2">Blue Cross</option>
@@ -334,7 +334,7 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">tag_faces</i>
-                                <select class="patient-dental-provider-id" required>
+                                <select required class="patient-dental-provider-id">
                                     <option value="" disabled selected>Dental Insurance Provider</option>
                                     <option value="1">Delta Dental</option>
                                     <option value="2">Aetna Dental</option>
