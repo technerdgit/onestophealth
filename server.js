@@ -5,7 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-
+var favicon = require("serve-favicon")
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -24,6 +24,8 @@ app.use(express.json());
 // Static directory
 
 app.use(express.static("public"));
+
+app.use(favicon(__dirname + "/public/assets/images/favicon.ico"))
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
