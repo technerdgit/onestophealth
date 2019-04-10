@@ -3,9 +3,14 @@ body{
     background-size: cover;
 }
 
-.bg-opacity{
-    opacity: 0.5;
+.change-font{
+    font-family: 'Alegreya Sans', sans-serif;
 }
+
+.transbox{
+    opacity: 0.8;
+}
+
 
 .brand-logo{
 
