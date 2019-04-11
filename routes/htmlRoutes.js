@@ -6,7 +6,9 @@ module.exports = function(app){
     res.render("landing")
   });
     
-
+  app.get("/find_doctors", function(req, res){
+  	res.render("find_doctors")
+  });
 
 }
 
