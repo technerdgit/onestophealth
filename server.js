@@ -15,6 +15,17 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 var exphbs = require("express-handlebars");
 
+var cors = require('cors');
+// const OktaJwtVerifier = require('@okta/jwt-verifier');
+
+
+//  oktaJwtVerifier = new OktaJwtVerifier({
+//   issuer: 'https://dev-527021.okta.com/oauth2/default',
+//   clientId: '0oafzij4dl6bUC13R356',
+//   assertClaims: {
+//     aud: 'api://default',
+//   },
+// });
 
 
 // Sets up the Express app to handle data parsing
@@ -30,6 +41,8 @@ app.set("view engine", "handlebars");
 
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes")(app);
+//require("./public/assets/js/authUrl");
+app.use(cors);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

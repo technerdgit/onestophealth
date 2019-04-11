@@ -6,6 +6,9 @@ module.exports = function(app){
     res.render("landing")
   });
     
+  // app.get("/patient", function(req, res){
+  //   res.render("patients")
+  // });
 
 
 }

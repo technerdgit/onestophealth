@@ -3,6 +3,8 @@ var db = require("../models");
 
 module.exports = function (app) {
 
+   
+
     // Find the doctor based on his login using his id
     app.get("/api/doctors/:id", function (req, res) {
         db.doctors.findAll({
@@ -24,18 +26,18 @@ module.exports = function (app) {
             });
     });
     // Find the patients based on his login id
-    app.get("/api/patient/:id", function (req, res) {
-        db.patients.findAll({
-            where: {
-                id: req.params.id
-            }
-        }).then(function(data){
-            var patientObj = {
-                patients: data
-            };
-            res.render("patients", patientObj);
-        });
-    });
+    // app.get("/api/patient/:id",  authenticationRequired, function (req, res) {
+    //     db.patients.findAll({
+    //         where: {
+    //             id: req.params.id
+    //         }
+    //     }).then(function(data){
+    //         var patientObj = {
+    //             patients: data
+    //         };
+    //         res.render("patients", patientObj);
+    //     });
+    // });
 
     // Get records for Current Patients and New patient request from doctors, patients and join table patient_doctors
     app.get("/api/patient_doctors/:id", function (req, res) {
@@ -129,4 +131,22 @@ module.exports = function (app) {
             res.json(results);
         });
     });
+
+    // Add route to get user id based on user email from okta
+    app.get("/api/patient/:okta_email",  function (req, res) {
+
+        db.patients.findAll({
+        
+            where: { email: req.params.okta_email }
+
+            }).then(function (response) {
+
+               var emailDataObj = {
+                   patients: response 
+               };
+               
+               res.render('patients', emailDataObj);
+            });
+    });
+   
 }

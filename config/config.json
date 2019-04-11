@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "password",
-    "database": "onestophealth",
-    "host": "127.0.0.1",
+    "username": "v7fglgmcj9ucu889",
+    "password": "ucoz4igohn878whc",
+    "database": "f9shnj24g6hkyuxr",
+    "host": "fnx6frzmhxw45qcb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
@@ -21,3 +21,4 @@
     "dialect": "mysql"
   }
 }
+
