@@ -33,29 +33,43 @@
   <div class="container">
     <div class="row">
       <!-- Input Form -->
-      <div class="col-md-3 pink-card" id="selector-bar">
+      <div class="col-md-3 pink-card z-depth-2" id="selector-bar">
 
         <h3 class="change-font">Got symptoms?</h3>
       </div>
-        <div class="col-md-3 pink-card no-mp">
+        <div class="col-md-3 pink-card z-depth-2">
           <h3 class="change-font">Find a Doctor!</h3>
         </div>
 
       </div>
     <div class="row">
-      <div class="col-md-6 center pink-card">
+      <div class="col-md-6 center pink-card z-depth-2">
         <form class="find-doctor">
           <input type="text" name="symptom" id="symptom" placeholder="What's wrong?">
-          <button type="submit" class='btn btn-info padding-bottom' id="find-symptoms" name="button">Search</button>
+          <button type="submit" href="#doctor-find" class='btn btn-info padding-bottom modal-trigger' id="find-symptoms" name="button">Search</button>
           <br>
         </form>
       </div>
     </div>
     <!-- Output -->
-    <div class="col-md-9" id="doctor-bar">
+    
+  </div>
+
+  <div id="doctor-find" class="modal">
+    <div class="modal-content">
+      <div class="col-md-9" id="doctor-bar">
       <div class="showDoctors" id="showDoctors"></div>
     </div>
+    </div>
+    
   </div>
-</body>
+          
 
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+<script>
+$(document).ready(function () {
+        $('.modal').modal();
+    });
+    </script>
 </html>
