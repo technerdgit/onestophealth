@@ -19,28 +19,34 @@
 // }
 
 $(document).ready(function(){
-    $(document).on("click", "#searchDoctor", findDoctor);
-})
-
-function findDoctor () {
-    var userInput = "";
-    var doctorsZips = $(this).data("doctor_zip");
+    $("#doctor_search").on("click", function () {
+    var userInput = $("#searchDoctorZip").val().trim();
+    console.log(userInput);
 // Get doctor zips from collected database 
 $.ajax({
     // Project.findAll({ where: { name: 'doctor_zip' } }).then(projects => {
     type: "GET",
-    data: encodeURIComponent(doctorsZips),
-    url: "/api/doctors",
+    url: "/api/patient/doctor_zip/" + userInput,
     success: function(res) {
-        console.log(res);
+       
     }
-})
+}).then(function(response){
+
+    location.reload();
+    // location.reload();
+    console.log("frontend", response);
+
+});
+});
+});
 // Test userInput against doctorZips
 // Post to page if userInput === doctorsZips
-$.ajax(""), {
-    type: "POST"
-}
-}
+// $.ajax({
+//     type: "POST",
+//     url: "/api/patientsinfo",
+
+// }
+// }
 
 // router.get('/doctors/:id, function (req, res, next)
 //  var sql = 'SELECT * FROM doctors WHERE id = ${req.params.id}';
