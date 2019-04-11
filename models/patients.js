@@ -43,12 +43,16 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       patient_login_name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       patient_login_password: {
         type: DataTypes.STRING,
-        allowNull: false
-      } 
+        allowNull: true
+      } ,
+      email: {
+         type: DataTypes.STRING,
+         allowNull: false
+      }
     });
   
     Patient.associate = function(models) {

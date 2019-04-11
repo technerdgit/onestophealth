@@ -9,7 +9,11 @@
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <script src="./assets/js/landing.js"></script>
+    <script src="./assets/js/landing.js"></script>
+    <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/patients.js"></script>
 </head>
 
 <body>
@@ -46,7 +50,7 @@
                                 </p>
                             </div>
                             <div class="card-action">
-                                <a href="#doc-login" class="btn modal-trigger">Login</a>
+                                <a href="#doctor-login"  id="doctor-login-btn" class="btn modal-trigger">Login</a>
                                 <a href="#doc-register" class="btn modal-trigger">Register</a>
                             </div>
                         </div>
@@ -58,7 +62,6 @@
         <div class="col s6">
             <div class="container">
                 <div class="col s12">
-
                     <div class="card blue-card z-depth-2">
                         <div class="card-content white-text">
                             <span class="card-title center change-font">Patient Login</span>
@@ -68,7 +71,7 @@
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="#patient-login" class="btn modal-trigger">Login</a>
+                            <a href="#patient-login"  id="patient-login-btn" class="btn modal-trigger">Login</a>
                             <a href="#patient-register" class="btn modal-trigger">Register</a>
                         </div>
                     </div>
@@ -82,60 +85,14 @@
     <div id="patient-login" class="modal">
         <div class="modal-content">
             <h4 class="center change-font">Patient Login Page</h4>
-            <form>
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col12">
-                                <i class="material-icons prefix">verified_user</i>
-                                <input id="patientUser" type="text" class="validate" required>
-                                <label for="patientUser">Username</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col12">
-                                <i class="material-icons prefix">verified_user</i>
-                                <input id="patientPw" type="text" class="validate" required>
-                                <label for="patientPw">Password</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" id="patient-login" class="waves-effect waves-green btn-flat">Sign
-                                    in</button>
-                            </div>
-                    </form>
-                </div>
-            </form>
+            <div id="patient-widget-container"></div>
         </div>
     </div>
-    </div>
     <!-- Doctor login modal pop up -->
-    <div id="doc-login" class="modal">
+    <div id="doctor-login" class="modal">
         <div class="modal-content">
             <h4 class="center change-font">Health Provider Login Page</h4>
-            <form>
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col12">
-                                <i class="material-icons prefix">verified_user</i>
-                                <input id="docUser" type="text" class="validate" required>
-                                <label for="docUser">Username</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col12">
-                                <i class="material-icons prefix">verified_user</i>
-                                <input id="docPw" type="text" class="validate" required>
-                                <label for="docPw">Password</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" id="doctor-login" class="waves-effect waves-green btn-flat">Sign
-                                    in</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </form>
+             <div id="doctor-widget-container"></div>
         </div>
     </div>
     </div>
