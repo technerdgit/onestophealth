@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-<!--     <script src="build/js/vendor.min.js"></script>
+
+<head>
+  <!--     <script src="build/js/vendor.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="build/css/vendor.css">
     <link rel="stylesheet" href="build/css/styles.css"> -->
-<!--     <script type="text/javascript" src="build/js/app.js"></script>
- -->    <!-- <script src="https://api.betterdoctor.com/2016-03-01/doctors?"></script> -->
+  <!--     <script type="text/javascript" src="build/js/app.js"></script>
+ -->
+  <!-- <script src="https://api.betterdoctor.com/2016-03-01/doctors?"></script> -->
   <script type="text/javascript" src="./assets/js/find_doctors.js"></script>
   {{!-- <script type="text/javascript" src="./assets/js/clientzip.js"></script> --}}
-{{!--  <script type="text/javascript" src="./assets/js/find_doctors_interface.js"></script> --}}
-    <title>Doctor Finder</title>
-  </head>
-  <body>
-       <nav>
-        <div class="blue lighten-1 nav-wrapper">
-            <img src="/assets/images/logo-removebg.png" class="brand-logo center">
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="#">Our Vision</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <h5 class="right nav-name change-font">One Stop Med</h5>
-        </div>
-    </nav>
-    <br>
+  {{!--  <script type="text/javascript" src="./assets/js/find_doctors_interface.js"></script> --}}
+  <title>Doctor Finder</title>
+</head>
+
+<body>
+  <nav>
+    <div class="blue lighten-1 nav-wrapper">
+      <img src="/assets/images/logo-removebg.png" class="brand-logo center">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="#">Our Vision</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <h5 class="right nav-name change-font">One Stop Health</h5>
+    </div>
+  </nav>
+  <br>
+  <div class="container">
     <div class="row">
       <!-- Input Form -->
-      <div class="col-md-3" id="selector-bar">
-        <div class="container">
-          <h3 class="change-font">Got symptoms?</h3>
-          <h1 class="change-font">Find a Doctor!</h1>
-          <form class="find-doctor">
-            <input type="text" name="symptom" id="symptom" placeholder="What's wrong?">
-            <button type="submit" class='btn btn-info' id="find-symptoms" name="button">Search</button>
-          </form>
-        </div>
+      <div class="col-md-3 pink-card" id="selector-bar">
+
+        <h3 class="change-font">Got symptoms?</h3>
       </div>
-      <!-- Output -->
-      <div class="col-md-9" id="doctor-bar">
-        <div class="showDoctors" id="showDoctors"></div>
+        <div class="col-md-3 pink-card no-mp">
+          <h3 class="change-font">Find a Doctor!</h3>
+        </div>
+
+      </div>
+    <div class="row">
+      <div class="col-md-6 center pink-card">
+        <form class="find-doctor">
+          <input type="text" name="symptom" id="symptom" placeholder="What's wrong?">
+          <button type="submit" class='btn btn-info padding-bottom' id="find-symptoms" name="button">Search</button>
+          <br>
+        </form>
       </div>
     </div>
-  </body>
+    <!-- Output -->
+    <div class="col-md-9" id="doctor-bar">
+      <div class="showDoctors" id="showDoctors"></div>
+    </div>
+  </div>
+</body>
 
 </html>
