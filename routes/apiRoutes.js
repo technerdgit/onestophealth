@@ -129,7 +129,7 @@ module.exports = function (app) {
             doctor_name: req.body.doctor_name,
             email: req.body.email,
             doctor_type: req.body.doctor_type,
-            doctor_specilization: req.body.doctor_specilization,
+            doctor_specialization: req.body.doctor_specialization,
             doctor_type: req.body.doctor_type,
             doctor_primary_address1: req.body.doctor_primary_address1,
             doctor_city: req.body.doctor_city,
