@@ -30,7 +30,7 @@ $(document).ready(function () {
     },
     baseUrl: 'https://dev-527021.okta.com',
     clientId: '0oafzij4dl6bUC13R356',
-    redirectUri: 'http://localhost:8080/implicit/callback',
+    redirectUri: 'https://onestophealth.herokuapp.com/implicit/callback',
     authParams: {
       issuer: "https://dev-527021.okta.com/oauth2/default",
       responseType: ['token', 'id_token'],
