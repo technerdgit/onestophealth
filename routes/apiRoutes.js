@@ -9,7 +9,7 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
-        }).then(function(data){
+        }).then(function (data) {
             var doctorObj = {
                 doctors: data
             };
@@ -17,21 +17,41 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/api/patientsinfo", function (req, res) {
-        db.patients.findAll({}
-            ).then(function (data){
-                res.render('patients', data);
-            });
+    app.get("/api/patient/doctor_zip/:zip?", function (req, res) {
+        db.doctors.findAll({
+            where: {
+                doctor_zip: req.params.zip
+            }
+        }).then(function (data) {
+
+            var doctorObj = {
+                patients: [],
+                doctors: data
+            };
+            console.log("backend", data)
+            res.render('patients', doctorObj);
+            // res.json(doctorObj);
+            // could do a res.render/res.json MAYBE to doctors
+        });
+
     });
+
+    // app.get("/api/patientsinfo", function (req, res) {
+    //     db.patients.findAll({}
+    //     ).then(function (data) {
+    //         res.render('patients', data);
+    //     });
+    // });
     // Find the patients based on his login id
     app.get("/api/patient/:id", function (req, res) {
         db.patients.findAll({
             where: {
                 id: req.params.id
             }
-        }).then(function(data){
+        }).then(function (data) {
             var patientObj = {
-                patients: data
+                patients: data,
+                doctors: []
             };
             res.render("patients", patientObj);
         });
@@ -85,8 +105,10 @@ module.exports = function (app) {
             patient_declined: req.body.patient_declined
         },
             {
-                where: { patientId: req.body.patientId,
-                         doctorId: req.body.doctorId },
+                where: {
+                    patientId: req.body.patientId,
+                    doctorId: req.body.doctorId
+                },
                 returning: true,
                 plain: true
             }).then(function () {
@@ -107,7 +129,7 @@ module.exports = function (app) {
             doctor_state: req.body.doctor_state,
             doctor_zip: req.body.doctor_zip,
             doctor_login_name: req.body.doctor_login_name,
-            doctor_login_password: req.body.doctor_login_password,
+            doctor_login_password: req.body.doctor_login_password
             doctor_insurance_accepted: req.body.doctor_insurance_accepted 
         }).then(function (results) {
             res.json(results);

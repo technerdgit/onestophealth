@@ -1,0 +1,29 @@
+{{#each doctors}}
+<tr>
+    <td><strong>Name</strong></td>
+    <td>{{this.doctor_name}}</td>/tr>
+<tr>
+    <td><strong>Address</strong></td>
+    <td>{{this.doctor_primary_address1}}</td>/tr>
+<tr>
+    <td><strong>City</strong></td>
+    <td>{{this.doctor_city}}</td>/tr>
+<tr>
+    <td><strong>Zip</strong></td>
+    <td>{{this.doctor_zip}}</td>/tr>
+<tr>
+    <td><strong>Medical Insurance ID# </strong></td>
+    <td>{{this.patient_medical_insurance_id}}</td>
+</tr>
+<tr>
+    <td><strong>Dental Insurance ID# </strong></td>
+    <td>{{this.patient_dental_insurance_id}}</td>
+</tr>
+<hr>
+
+<h5 class="text-center">Doctors nearby</h5>
+<br>
+<h5 class="text-center">Doctor info: <br> {{this.doctors}}</h5>
+
+
+{{/each}}
