@@ -15,8 +15,16 @@ body{
     background-color:#42a4f5a2 !important;
 }
 
+.pink-blue-bg{
+    background-image: url("../images/placeholder.png")
+}
+
 .zip-entry{
     margin-left: 10px;
+}
+
+.padding-bottom{
+    margin-bottom: 5px;
 }
 
 .card-action{
