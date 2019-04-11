@@ -4,10 +4,12 @@ console.log("hello");
 
 	//New account creation for patient 
 	$(".patient-register").on("click", function(){
-		if ($("#password").val() !== $("#confirm-password").val()) {
-			alert("error. password mismatch, please re-enter");
-			return;
-		} else{
+
+		// if ($("#password").val() !== $("#confirm-password").val()) {
+		// 	alert("error. password mismatch, please re-enter");
+		// 	return;
+		// }
+
 		var newPatient = {
 			patient_name: $(".patient-first-name").val().trim() + " " + $(".patient-last-name").val().trim(),
 			patient_primary_address1: $(".patient-address1").val().trim(),
@@ -36,10 +38,10 @@ console.log("hello");
 // $(document).ready(function(){
 	//new account creation for doctor
 	$(".doctor-register").on("click", function() {
-		if ($("#password").val() !== $("#confirm-password").val()) {
-			alert("error. password mismatch, please re-enter");
-			return;
-		}
+		// if ($("#password").val() !== $("#confirm-password").val()) {
+		// 	alert("error. password mismatch, please re-enter");
+		// 	return;
+		// }
 		var insuranceAcceptedObj = $(".doctor-insurance-accepted").val()
 		var insuranceAcceptedStr = insuranceAcceptedObj.toString()
 		var newDoctor = {
