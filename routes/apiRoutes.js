@@ -31,7 +31,6 @@ module.exports = function (app) {
         }).then(function (data) {
 
             var doctorObj = {
-                patients: [],
                 doctors: data
             };
             console.log("backend", data)
@@ -44,11 +43,11 @@ module.exports = function (app) {
 
 
     // Get records for Current Patients and New patient request from doctors, patients and join table patient_doctors
-    app.get("/api/patient_doctors/:okta_email", function (req, res) {
+    app.get("/api/patient_doctors/:id", function (req, res) {
 
         db.doctors.findAll({
             where: {
-                email: req.params.okta_email
+                id: req.params.id
             },
             include: [{
                 model: db.patients
@@ -61,7 +60,8 @@ module.exports = function (app) {
                 var current_patient = dbDoctor[0].patients[i].patient_doctors.dataValues.current_patient;
                 var patient_request = dbDoctor[0].patients[i].patient_doctors.dataValues.patient_request;
                 var patientid = dbDoctor[0].patients[i].patient_doctors.dataValues.patientId;
-                var doctorId = dbDoctor[0].patients[i].patient_doctors.dataValues.doctorId
+                var doctorId = dbDoctor[0].patients[i].patient_doctors.dataValues.doctorId;
+                var email = req.params.okta_email;
                 docdata = {
                     current_patient: current_patient,
                     patient_name: patient_name,
