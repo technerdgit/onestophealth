@@ -42,33 +42,13 @@ module.exports = function (app) {
 
     });
 
-    // app.get("/api/patientsinfo", function (req, res) {
-    //     db.patients.findAll({}
-    //     ).then(function (data) {
-    //         res.render('patients', data);
-    //     });
-    // });
-    // Find the patients based on his login id
-    // app.get("/api/patient/:id", function (req, res) {
-    //     db.patients.findAll({
-    //         where: {
-    //             id: req.params.id
-    //         }
-    //     }).then(function (data) {
-    //         var patientObj = {
-    //             patients: data,
-    //             doctors: []
-    //         };
-    //         res.render("patients", patientObj);
-    //     });
-    // });
 
     // Get records for Current Patients and New patient request from doctors, patients and join table patient_doctors
-    app.get("/api/patient_doctors/:id", function (req, res) {
+    app.get("/api/patient_doctors/:okta_email", function (req, res) {
 
         db.doctors.findAll({
             where: {
-                id: req.params.id
+                email: req.params.okta_email
             },
             include: [{
                 model: db.patients
@@ -81,7 +61,7 @@ module.exports = function (app) {
                 var current_patient = dbDoctor[0].patients[i].patient_doctors.dataValues.current_patient;
                 var patient_request = dbDoctor[0].patients[i].patient_doctors.dataValues.patient_request;
                 var patientid = dbDoctor[0].patients[i].patient_doctors.dataValues.patientId;
-                var doctorId = req.params.id;
+                var doctorId = dbDoctor[0].patients[i].patient_doctors.dataValues.doctorId
                 docdata = {
                     current_patient: current_patient,
                     patient_name: patient_name,
