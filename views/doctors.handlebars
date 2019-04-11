@@ -1,15 +1,15 @@
-   <nav>
-        <div class="blue lighten-1 nav-wrapper">
-            <img src="assets/images/logo-removebg.png" class="brand-logo center">
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="#">Our Vision</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <h5 class="right nav-name change-font">One Stop Med</h5>
-        </div>
-    </nav>
-    <br>
+<nav>
+  <div class="blue lighten-1 nav-wrapper">
+    <img src="/assets/images/logo-removebg.png" class="brand-logo center">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="#">Our Vision</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <h5 class="right nav-name change-font">One Stop Med</h5>
+  </div>
+</nav>
+<br>
 <div class="container">
   <div class="row">
     <div class="col s5"><span class="flow-text">
@@ -18,31 +18,29 @@
             <tr>
               <th>Doctor Information</th>
             </tr>
-           
+
             {{#each doctors}}
-             <tr>
-              <td><strong class="">Doctor's Name:   </strong> {{this.doctor_name}}</td>
-              </tr>
-              <tr>
+            <tr>
+              <td><strong class="">Doctor's Name: </strong> {{this.doctor_name}}</td>
+            </tr>
+            <tr>
               <td><strong>Doctor's Primary Address:</strong> {{this.doctor_primary_address1}}</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
               <td><strong>Doctor's Specialization: </strong>{{this.doctor_specialization}}</td>
-              </tr>
-              <tr>
-                <td><strong>Doctor Type: </strong>{{this.doctor_type}}</td>
-              </tr>
-              <tr>
-                <td><strong>Doctor Accepted Insurance(s): </strong>{{this.doctor_insurance_accepted}}
-                </td>
-              </tr>
+            </tr>
+            <tr>
+              <td><strong>Doctor Type: </strong>{{this.doctor_type}}</td>
+            </tr>
+            <tr>
+              <td><strong>Doctor Accepted Insurance(s): </strong>{{this.doctor_insurance_accepted}}
+              </td>
+            </tr>
             {{/each}}
-            
+
           </table>
         </div>
       </span>
     </div>
   </div>
 </div>
-
-
