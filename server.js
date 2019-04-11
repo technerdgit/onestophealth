@@ -15,7 +15,13 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 var exphbs = require("express-handlebars");
 
+var path = require("path");
+var cors = require('cors');
 // var zipcodes = require('zipcodes');
+// views Path
+var viewPath = path.join(__dirname, 'views');
+app.set('views', viewPath);
+
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));

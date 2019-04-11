@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING(10),
         allowNull: true
       } ,
-      doctor_specialization: {
+      doctor_specilization: {
         type: DataTypes.STRING,
         allowNull: true
       } ,
@@ -47,7 +47,11 @@ module.exports = function(sequelize, DataTypes) {
       doctor_insurance_accepted: {
         type: DataTypes.STRING,
         allowNull: true
-      }
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false
+     }
     });
 
     
