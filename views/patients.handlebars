@@ -11,6 +11,7 @@
     </nav>
     <br>
 <div class="container blue-card z-depth-3">
+
   <div class="row">
     <div class="col s5"><span class="flow-text">
         <div id="current-patient" class="current-patient ">
@@ -26,6 +27,8 @@
               <tr><td><strong>Name</strong></td><td>{{this.patient_name}}</td></tr>
               <tr><td><strong>Address </strong></td><td> {{this.patient_primary_address1}}</td></tr>
               <tr><td><strong>City, Zip </strong> </td><td>{{this.patient_city}}<span>   , </span> {{this.patient_zip}}</td></tr>
+              <tr><td><strong>Medical Insurance ID# </strong></td><td>{{this.patient_medical_insurance_id}}</td></tr>
+              <tr><td><strong>Dental Insurance ID# </strong></td><td>{{this.patient_dental_insurance_id}}</td></tr>
               <hr>
               {{/each}}
           </table>
@@ -37,10 +40,33 @@
 <div class="container blue-card z-depth-3">
    <div class="row">
   <form type="form-controls">
+
       <label class="white-text" for="searchDoctor"><strong style="font-size: 2em">Find Doctor near me</strong></label>
       <br>
       <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-50">
       <a class="waves-effect waves-light btn-small bg-info"><i class="material-icons">search</i></a>
+
   </form>
-  </div>
 </div>
+</div>
+
+{{#*inline  "doctorzip"}}
+<table id="doctor-data">
+{{#each doctors}}
+<tr><td><strong>Name</strong></td><td>{{this.doctor_name}}</td></tr>
+  <tr><td><strong>Address</strong></td><td>{{this.doctor_primary_address1}}</td></tr>
+  <tr><td><strong>City</strong></td><td>{{this.doctor_city}}</td></tr>
+  <tr><td><strong>Zip</strong></td><td>{{this.doctor_zip}}</td></tr>
+  <hr>
+
+   <h5 class="text-center">Doctors nearby</h5> 
+  <br>
+  <h5 class="text-center">Doctor info: <br> {{this.doctors}}</h5>
+{{!-- response[i] // USE JQUERY --}}
+  
+  {{/each}}
+  </table>
+{{/inline}}
+  
+
+  

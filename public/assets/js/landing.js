@@ -19,8 +19,8 @@ $(document).ready(function(){
 			patient_login_password: $(".patient-password").val(),
 			patient_medical_insurance_id: $(".patient-medical-insurance-id").val().trim(),
 			patient_dental_insurance_id: $(".patient-dental-insurance-id").val().trim(),
-			patient_medical_provider_id: $(".patient-medical-provider-id").val(),
-			patient_dental_provider_id: $(".patient-dental-provider-id").val()
+			patient_medical_provider_id: $(".patient-medical-provider-id").val().trim(),
+			patient_dental_provider_id: $(".patient-dental-provider-id").val().trim(),
 		};
 		console.log(newPatient);
 		$.ajax("/api/patients", {
