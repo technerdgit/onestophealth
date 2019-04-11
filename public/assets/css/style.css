@@ -7,10 +7,20 @@ body{
     font-family: 'Alegreya Sans', sans-serif;
 }
 
-.transbox{
-    opacity: 0.8;
+.pink-card{
+    background-color:#f06291b9 !important;
 }
 
+.blue-card{
+    background-color:#42a4f5a2 !important;
+}
+.transbox{
+    opacity: 0.5;
+}
+
+.card-action{
+    background-color:transparent !important;
+}
 
 .brand-logo{
 

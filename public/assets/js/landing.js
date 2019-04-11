@@ -1,13 +1,15 @@
 $(document).ready(function(){
-
+console.log("hello");
 	
 
 	//New account creation for patient 
 	$(".patient-register").on("click", function(){
+
 		// if ($("#password").val() !== $("#confirm-password").val()) {
 		// 	alert("error. password mismatch, please re-enter");
 		// 	return;
 		// }
+
 		var newPatient = {
 			patient_name: $(".patient-first-name").val().trim() + " " + $(".patient-last-name").val().trim(),
 			patient_primary_address1: $(".patient-address1").val().trim(),
@@ -29,7 +31,7 @@ $(document).ready(function(){
 	function(response){
 		parent.window.location="/api/patient/"+ response.id;
 		//	window.location.replace("/api/patient/"+ response.id);
-	});
+	});}
   });
 // });
 
