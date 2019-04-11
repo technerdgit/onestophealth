@@ -5,7 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-
+var favicon = require("serve-favicon")
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -15,7 +15,7 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 var exphbs = require("express-handlebars");
 
-
+// var zipcodes = require('zipcodes');
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +23,9 @@ app.use(express.json());
 
 // Static directory
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static("public"));
+
+app.use(favicon(__dirname + "/public/assets/images/favicon.ico"))
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");

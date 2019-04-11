@@ -1,0 +1,35 @@
+body{
+    background-image: url("../images/home-bg.jpg");
+    background-size: cover;
+}
+
+.change-font{
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.pink-card{
+    background-color:#f06291b9 !important;
+}
+
+.blue-card{
+    background-color:#42a4f5a2 !important;
+}
+.transbox{
+    opacity: 0.5;
+}
+
+.card-action{
+    background-color:transparent !important;
+}
+
+.brand-logo{
+
+    height: 50px;
+    width: auto;
+    margin-top: 5px;
+}
+
+.nav-name{
+    margin-right: 15px;
+   
+}

@@ -123,15 +123,22 @@ module.exports = function (app) {
             doctor_name: req.body.doctor_name,
             doctor_type: req.body.doctor_type,
             doctor_specialization: req.body.doctor_specialization,
+            doctor_type: req.body.doctor_type,
             doctor_primary_address1: req.body.doctor_primary_address1,
             doctor_city: req.body.doctor_city,
             doctor_state: req.body.doctor_state,
             doctor_zip: req.body.doctor_zip,
             doctor_login_name: req.body.doctor_login_name,
             doctor_login_password: req.body.doctor_login_password
+            doctor_insurance_accepted: req.body.doctor_insurance_accepted 
         }).then(function (results) {
             res.json(results);
         });
+        // db.doctor_insurances.create({
+        //     insurance_accepted: req.body.insurance_accepted
+        // }).then(function(results){
+        //     res.json(results);
+        // });   
     });
 
     // Insert record into the Patient table using patients model

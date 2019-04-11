@@ -29,5 +29,10 @@
     "mysql2": "^1.6.5",
     "path": "^0.12.7",
     "sequelize": "^5.2.15"
+    "jquery-validation": "^1.19.0",
+    "mysql2": "^1.6.5",
+    "path": "^0.12.7",
+    "sequelize": "^5.2.13",
+    "zipcodes": "^8.0.0"
   }
 }
