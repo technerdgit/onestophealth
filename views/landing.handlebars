@@ -13,71 +13,70 @@
 </head>
 
 <body>
-    <div class="home-bg">
-        <!-- Nav bar -->
-        <nav>
-            <div class="blue lighten-1 nav-wrapper">
-                <img src="assets/images/logo-removebg.png" class="brand-logo center">
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="#">Our Vision</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="/find_doctors">Find a Doctor</a></li>
-                </ul>
-                <h5 class="right nav-name change-font">One Stop Health</h5>
-            </div>
-        </nav>
-        <br>
-
-        <div class="col 12">
-            <h3 class="center change-font">Your one stop shop for all of your medical needs!</h3>
+    <!-- Nav bar -->
+    <nav>
+        <div class="blue lighten-1 nav-wrapper">
+            <img src="assets/images/logo-removebg.png" class="brand-logo center">
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="#">Our Vision</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="/find_doctors">Find a Doctor</a></li>
+            </ul>
+            <h5 class="right nav-name change-font">One Stop Health</h5>
         </div>
-        <div class="row">
-            <div class="col s6">
-                <div class="container">
-                    <div class="row">
-                        <!-- Doctor login option -->
-                        <div class="col s12">
-                            <div class="card pink-card z-depth-2">
-                                <div class="card-content white-text">
-                                    <span class="card-title center change-font">Provider Login</span>
-                                    <p>If you are a medical provider, please register to keep track of all of your
-                                        current
-                                        patients,
-                                        as well as discovering and meeting new patients near you!
-                                    </p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="#doc-login" class="btn modal-trigger">Login</a>
-                                    <a href="#doc-register" class="btn modal-trigger">Register</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Patient login option -->
-            <div class="col s6">
-                <div class="container">
-                    <div class="col s12">
+    </nav>
+    <br>
 
-                        <div class="card blue-card z-depth-2">
+    <div class="col 12">
+        <h3 class="center change-font">Your one stop shop for all of your medical needs!</h3>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="container">
+                <div class="row">
+                    <!-- Doctor login option -->
+                    <div class="col s12">
+                        <div class="card pink-card z-depth-2">
                             <div class="card-content white-text">
-                                <span class="card-title center change-font">Patient Login</span>
-                                <p>Finally, one place for all of your medical needs.
-                                    Keep track of your doctors, appointments, medical history,
-                                    and more!
+                                <span class="card-title center change-font">Provider Login</span>
+                                <p>If you are a medical provider, please register to keep track of all of your
+                                    current
+                                    patients,
+                                    as well as discovering and meeting new patients near you!
                                 </p>
                             </div>
                             <div class="card-action">
-                                <a href="#patient-login" class="btn modal-trigger">Login</a>
-                                <a href="#patient-register" class="btn modal-trigger">Register</a>
+                                <a href="#doc-login" class="btn modal-trigger">Login</a>
+                                <a href="#doc-register" class="btn modal-trigger">Register</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+        <!-- Patient login option -->
+        <div class="col s6">
+            <div class="container">
+                <div class="col s12">
+
+                    <div class="card blue-card z-depth-2">
+                        <div class="card-content white-text">
+                            <span class="card-title center change-font">Patient Login</span>
+                            <p>Finally, one place for all of your medical needs.
+                                Keep track of your doctors, appointments, medical history,
+                                and more!
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#patient-login" class="btn modal-trigger">Login</a>
+                            <a href="#patient-register" class="btn modal-trigger">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- User login modal pop up -->
     <div id="patient-login" class="modal">
@@ -107,6 +106,7 @@
             </form>
         </div>
     </div>
+    </div>
     <!-- Doctor login modal pop up -->
     <div id="doc-login" class="modal">
         <div class="modal-content">
@@ -120,20 +120,23 @@
                                 <input id="docUser" type="text" class="validate" required>
                                 <label for="docUser">Username</label>
                             </div>
-                            <div class="row">
-                                <div class="input-field col12">
-                                    <i class="material-icons prefix">verified_user</i>
-                                    <input id="docPw" type="text" class="validate" required>
-                                    <label for="docPw">Password</label>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" id="doctor-login"
-                                        class="waves-effect waves-green btn-flat">Sign in</a>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col12">
+                                <i class="material-icons prefix">verified_user</i>
+                                <input id="docPw" type="text" class="validate" required>
+                                <label for="docPw">Password</label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="doctor-login" class="waves-effect waves-green btn-flat">Sign
+                                    in</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </form>
         </div>
+    </div>
     </div>
     <!-- Doctor Register Modal Pop up -->
     <div id="doc-register" class="modal">
@@ -151,102 +154,102 @@
                                 <label for="username">Username</label>
                             </div>
                         </div>
-                        <!-- Password -->
-                        <div class="row">
-                            <div class="input-field col md6 s6">
-                                <i class="material-icons prefix">security</i>
-                                <input id="doctor-password" type="password" class="validate doctor-login-password"
-                                    required>
-                                <label for="password">Password</label>
-                            </div>
-                            <!-- Confirm Password -->
-                            <div class="input-field col s6">
-                                <input id="confirm-doctor-password" type="password"
-                                    class="validate doctor-login-password" required>
-                                <label for="confirm-password">Confirm Password</label>
-                            </div>
-                        </div>
-                        <!-- First and Last Names -->
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">person</i>
-                                <input id="doctor-first-name" type="tel" class="validate doctor-first-name" required>
-                                <label for="first-name">First Name</label>
-                            </div>
+                </div>
+                <!-- Password -->
+                <div class="row">
+                    <div class="input-field col md6 s6">
+                        <i class="material-icons prefix">security</i>
+                        <input id="doctor-password" type="password" class="validate doctor-login-password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <!-- Confirm Password -->
+                    <div class="input-field col s6">
+                        <input id="confirm-doctor-password" type="password" class="validate doctor-login-password"
+                            required>
+                        <label for="confirm-password">Confirm Password</label>
+                    </div>
+                </div>
+                <!-- First and Last Names -->
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">person</i>
+                        <input id="doctor-first-name" type="tel" class="validate doctor-first-name" required>
+                        <label for="first-name">First Name</label>
+                    </div>
 
-                            <div class="input-field col s6">
-                                <input id="doctor-last-name" type="tel" class="validate doctor-last-name" required>
-                                <label for="icon_telephone">Last Name</label>
-                            </div>
-                            <!-- Phone Number -->
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">phone</i>
-                                <input id="doctor-phone" type="text" class="validate doctor-phone" required>
-                                <label for="phone">Phone Number</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">navigation</i>
-                                <input id="doctor_address" type="text" class="validate doctor-address1" required>
-                                <label for="address">Address Street</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">navigation</i>
-                                <input id="doctor_city" type="text" class="validate doctor-city" required>
-                                <label for="city">City</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6 ">
-                                <i class="material-icons prefix">navigation</i>
-                                <input id="doctor-zip" type="number" min="10000" max="99999" class="validate doctor-zip"
-                                    required>
-                                <label for="zip">Zip</label>
-                            </div>
-                        </div>
+                    <div class="input-field col s6">
+                        <input id="doctor-last-name" type="tel" class="validate doctor-last-name" required>
+                        <label for="icon_telephone">Last Name</label>
+                    </div>
+                    <!-- Phone Number -->
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="doctor-phone" type="text" class="validate doctor-phone" required>
+                        <label for="phone">Phone Number</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">navigation</i>
+                        <input id="doctor_address" type="text" class="validate doctor-address1" required>
+                        <label for="address">Address Street</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">navigation</i>
+                        <input id="doctor_city" type="text" class="validate doctor-city" required>
+                        <label for="city">City</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 ">
+                        <i class="material-icons prefix">navigation</i>
+                        <input id="doctor-zip" type="number" min="10000" max="99999" class="validate doctor-zip"
+                            required>
+                        <label for="zip">Zip</label>
+                    </div>
+                </div>
 
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">star</i>
-                                <select required class="doctor-type">
-                                    <option value="" disabled selected>Type</option>
-                                    <option value="PCP">Primary</option>
-                                    <option value="Dentist">Dental</option>
-                                    <option value="Optometrist">Vision</option>
-                                </select>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">star</i>
+                        <select required class="doctor-type">
+                            <option value="" disabled selected>Type</option>
+                            <option value="PCP">Primary</option>
+                            <option value="Dentist">Dental</option>
+                            <option value="Optometrist">Vision</option>
+                        </select>
 
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">star</i>
-                            <input id="specialization" type="text" class="validate doctor-specialization" required>
-                            <label for="specialization">Doctor Specialization</label>
-                        </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">star</i>
+                    <input id="specialization" type="text" class="validate doctor-specialization" required>
+                    <label for="specialization">Doctor Specialization</label>
+                </div>
 
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">description</i>
-                            <select multiple class="doctor-insurance-accepted" required>
-                                <option value="" disabled selected>Insurance Accepted</option>
-                                <option value="HMO">HMO</option>
-                                <option value="PPO">PPO</option>
-                                <option value="Medicare">Medi-care</option>
-                            </select>
-                        </div>
-                    </form>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">description</i>
+                    <select multiple class="doctor-insurance-accepted" required>
+                        <option value="" disabled selected>Insurance Accepted</option>
+                        <option value="HMO">HMO</option>
+                        <option value="PPO">PPO</option>
+                        <option value="Medicare">Medi-care</option>
+                    </select>
                 </div>
             </form>
         </div>
-        <div class="modal-footer doctor-register">
+        </form>
+    </div>
+    <div class="modal-footer doctor-register">
 
-            <button type="submit" id="doctor-register" class="waves-effect waves-green btn-flat">Register</button>
+        <button type="submit" id="doctor-register" class="waves-effect waves-green btn-flat">Register</button>
 
-        </div>
+    </div>
     </div>
     <!-- Patient Modal Pop up -->
     <div id="patient-register" class="modal">

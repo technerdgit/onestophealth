@@ -19,6 +19,10 @@ body{
     background-image: url("../images/placeholder.png")
 } */
 
+
+.modal{
+    background-color: lightgrey;
+}
 .zip-entry{
     margin-left: 10px;
 }
