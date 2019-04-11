@@ -5,5 +5,16 @@
     "database": "f9shnj24g6hkyuxr",
     "host": "fnx6frzmhxw45qcb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "use_env_variable": "mysql://v7fglgmcj9ucu889:ucoz4igohn878whc@fnx6frzmhxw45qcb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/f9shnj24g6hkyuxr"
   }
 }
+
