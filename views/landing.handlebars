@@ -9,7 +9,7 @@
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
+
     <script src="./assets/js/landing.js"></script>
     <script src="./assets/js/landing.js"></script>
     <script src="./assets/js/auth.js"></script>
@@ -50,7 +50,7 @@
                                 </p>
                             </div>
                             <div class="card-action">
-                                <a href="#doctor-login"  id="doctor-login-btn" class="btn modal-trigger">Login</a>
+                                <a href="#doctor-login" id="doctor-login-btn" class="btn modal-trigger">Login</a>
                                 <a href="#doc-register" class="btn modal-trigger">Register</a>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="#patient-login"  id="patient-login-btn" class="btn modal-trigger">Login</a>
+                            <a href="#patient-login" id="patient-login-btn" class="btn modal-trigger">Login</a>
                             <a href="#patient-register" class="btn modal-trigger">Register</a>
                         </div>
                     </div>
@@ -92,8 +92,9 @@
     <div id="doctor-login" class="modal">
         <div class="modal-content">
             <h4 class="center change-font">Health Provider Login Page</h4>
-             <div id="doctor-widget-container"></div>
+            <div id="doctor-widget-container"></div>
         </div>
+    </div>
     </div>
     </div>
     <!-- Doctor Register Modal Pop up -->
@@ -106,11 +107,16 @@
                     <form class="col s12">
                         <div class="row">
                             <!-- New username input -->
-                            <div class="input-field col12">
+                            <div class="input-field col6">
                                 <i class="material-icons prefix">account_circle</i>
                                 <input id="doctor-username" type="text" class="validate doctor-login-name" required>
                                 <label for="username">Username</label>
                             </div>
+                            <div class="input-field col6">
+                            <i class="material-icons prefix">email</i>
+                            <input id="doctor-email" type="email" class="validate doctor-email" required>
+                            <label for="email">E-mail</label>
+                        </div>
                         </div>
                 </div>
                 <!-- Password -->
@@ -203,9 +209,9 @@
         </div>
         </form>
 
-        <div class="modal-footer doctor-register">
+        <div class="modal-footer">
 
-            <button type="submit" id="doctor-register" class="waves-effect waves-green btn-flat">Register</button>
+            <button type="submit" id="doctor-register" class="waves-effect waves-green btn-flat doctor-register">Register</button>
         </div>
     </div>
     </div>
@@ -220,10 +226,18 @@
                 <form class="col s12 registration">
                     <div class="row">
                         <!-- New username input -->
-                        <div class="input-field col12">
+                        <div class="input-field col6">
                             <i class="material-icons prefix">account_circle</i>
                             <input id="patient-username" type="text" class="validate patient-username" required>
                             <label for="username">Username</label>
+                        </div>
+                    
+                    
+                        <!-- New username input -->
+                        <div class="input-field col6">
+                            <i class="material-icons prefix">email</i>
+                            <input id="patient-email" type="email" class="validate patient-email" required>
+                            <label for="email">E-mail</label>
                         </div>
                     </div>
                     <!-- Password -->
@@ -292,32 +306,12 @@
                             </select>
                         </div>
                         <div class="input-field col s6">
-                            <i class="material-icons prefix">local_pharmacy</i>
-                            <input id="medId" type="text" class="validate patient-medical-insurance-id" required>
-                            <label for="medId">Medical ID #</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">tag_faces</i>
-                            <select required class="patient-dental-provider-id">
-                                <option value="" disabled selected>Dental Insurance Provider</option>
-                                <option value="1">Delta Dental</option>
-                                <option value="2">Aetna Dental</option>
-                                <option value="3">United Health</option>
-                            </select>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">tag_faces</i>
-                            <input id="oralId" type="text" class="validate patient-dental-insurance-id" required>
-                            <label for="oralId">Dental ID #</label>
-                        </div>
-                    </div>
-                    <div class="input-field col s6">
                         <i class="material-icons prefix">local_pharmacy</i>
                         <input id="medId" type="text" class="validate patient-medical-insurance-id" required>
                         <label for="medId">Medical ID #</label>
                     </div>
+                    </div>
+                    
             </div>
             <div class="row">
                 <div class="input-field col s6">
@@ -335,9 +329,9 @@
                     <label for="oralId">Dental ID #</label>
                 </div>
             </div>
-            <div class="modal-footer patient-register">
-                <button href="#!" type="submit" id="patient-register"
-                    class="waves-effect waves-green btn-flat">Register</button>
+            <div class="modal-footer">
+                <button href="#!" type="submit"  id="patient-register"
+                    class="waves-effect waves-green btn-flat patient-register">Register</button>
             </div>
             </form>
         </div>

@@ -127,6 +127,7 @@ module.exports = function (app) {
     app.post("/api/doctors", function (req, res) {
         db.doctors.create({
             doctor_name: req.body.doctor_name,
+            email: req.body.email,
             doctor_type: req.body.doctor_type,
             doctor_specilization: req.body.doctor_specilization,
             doctor_type: req.body.doctor_type,
@@ -146,6 +147,7 @@ module.exports = function (app) {
     app.post("/api/patients", function (req, res) {
         db.patients.create({
             patient_name: req.body.patient_name,
+            email: req.body.email,
             patient_primary_address1: req.body.patient_primary_address1,
             patient_city: req.body.patient_city,
             patient_zip: req.body.patient_zip,
