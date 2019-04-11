@@ -3,19 +3,25 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    // Find the doctor based on his login using his id
-    app.get("/api/doctors/:id", function (req, res) {
-        db.doctors.findAll({
-            where: {
-                id: req.params.id
-            }
-        }).then(function (data) {
-            var doctorObj = {
-                doctors: data
-            };
-            res.render("doctors", doctorObj);
-        });
+  // Find the doctor based on his login using his email
+  app.get("/api/doctors/:okta_email/:zip?", function (req, res) {
+    db.doctors.findAll({
+        where: {
+            email: req.params.okta_email
+        }
+    }).then(function(data){
+        var doctorObj = {
+            doctors: data
+        };
+        if(req.params.zip !== undefined){
+            res.json("doctorObj");
+        }
+        else{
+        res.render("doctors", doctorObj);
+        }
     });
+});
+
 
     app.get("/api/patient/doctor_zip/:zip?", function (req, res) {
         db.doctors.findAll({
@@ -43,19 +49,19 @@ module.exports = function (app) {
     //     });
     // });
     // Find the patients based on his login id
-    app.get("/api/patient/:id", function (req, res) {
-        db.patients.findAll({
-            where: {
-                id: req.params.id
-            }
-        }).then(function (data) {
-            var patientObj = {
-                patients: data,
-                doctors: []
-            };
-            res.render("patients", patientObj);
-        });
-    });
+    // app.get("/api/patient/:id", function (req, res) {
+    //     db.patients.findAll({
+    //         where: {
+    //             id: req.params.id
+    //         }
+    //     }).then(function (data) {
+    //         var patientObj = {
+    //             patients: data,
+    //             doctors: []
+    //         };
+    //         res.render("patients", patientObj);
+    //     });
+    // });
 
     // Get records for Current Patients and New patient request from doctors, patients and join table patient_doctors
     app.get("/api/patient_doctors/:id", function (req, res) {
@@ -122,7 +128,7 @@ module.exports = function (app) {
         db.doctors.create({
             doctor_name: req.body.doctor_name,
             doctor_type: req.body.doctor_type,
-            doctor_specialization: req.body.doctor_specialization,
+            doctor_specilization: req.body.doctor_specilization,
             doctor_type: req.body.doctor_type,
             doctor_primary_address1: req.body.doctor_primary_address1,
             doctor_city: req.body.doctor_city,
@@ -134,11 +140,6 @@ module.exports = function (app) {
         }).then(function (results) {
             res.json(results);
         });
-        // db.doctor_insurances.create({
-        //     insurance_accepted: req.body.insurance_accepted
-        // }).then(function(results){
-        //     res.json(results);
-        // });   
     });
 
     // Insert record into the Patient table using patients model
@@ -157,5 +158,22 @@ module.exports = function (app) {
         }).then(function (results) {
             res.json(results);
         });
+    });
+
+      // Add route to get user id based on user email from okta
+      app.get("/api/patient/:okta_email",  function (req, res) {
+
+        db.patients.findAll({
+        
+            where: { email: req.params.okta_email }
+
+            }).then(function (response) {
+
+               var emailDataObj = {
+                   patients: response 
+               };
+               
+               res.render('patients', emailDataObj);
+            });
     });
 }

@@ -40,12 +40,23 @@
 <div class="container blue-card z-depth-3">
    <div class="row">
   <form type="form-controls">
-
+      <div class="col s3">
       <label class="white-text" for="searchDoctor"><strong style="font-size: 2em">Find Doctor near me</strong></label>
       <br>
-      <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-50">
+      <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-25">
       <a class="waves-effect waves-light btn-small bg-info"><i class="material-icons">search</i></a>
-
+      </div>
+        <div class="col s3">
+                <label>Doctor Type</label>
+           <select class="browser-default">
+            <option value="" enabled selected>Doctor Type</option>
+            <option value="general">Family Physician</option>
+            <option value="optometrist">Optometrist</option>
+            <option value="dentist">Dentist</option>
+            <option value="cardiologist">Cardiologist</option>
+            <option value="neurologist">Neurologist</option>
+          </select>
+          </div>
   </form>
 </div>
 </div>

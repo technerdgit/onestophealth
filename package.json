@@ -22,13 +22,15 @@
   },
   "homepage": "https://github.com/kanwarb/onestophealth#readme",
   "dependencies": {
+    "@okta/jwt-verifier": "0.0.14",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "jquery-validation": "^1.19.0",
     "mysql2": "^1.6.5",
     "path": "^0.12.7",
-    "sequelize": "^5.2.13",
-
+    "sequelize": "^5.3.1",
+    "serve-favicon": "^2.5.0",
     "zipcodes": "^8.0.0"
   }
 }
