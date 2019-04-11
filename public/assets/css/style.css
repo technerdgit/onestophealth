@@ -14,8 +14,9 @@ body{
 .blue-card{
     background-color:#42a4f5a2 !important;
 }
-.transbox{
-    opacity: 0.5;
+
+.zip-entry{
+    margin-left: 10px;
 }
 
 .card-action{

@@ -15,12 +15,24 @@
     <title>Doctor Finder</title>
   </head>
   <body>
+       <nav>
+        <div class="blue lighten-1 nav-wrapper">
+            <img src="/assets/images/logo-removebg.png" class="brand-logo center">
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="#">Our Vision</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <h5 class="right nav-name change-font">One Stop Med</h5>
+        </div>
+    </nav>
+    <br>
     <div class="row">
       <!-- Input Form -->
       <div class="col-md-3" id="selector-bar">
         <div class="container">
-          <h3>Got symptoms?</h3>
-          <h1>Find a Doctor!</h1>
+          <h3 class="change-font">Got symptoms?</h3>
+          <h1 class="change-font">Find a Doctor!</h1>
           <form class="find-doctor">
             <input type="text" name="symptom" id="symptom" placeholder="What's wrong?">
             <button type="submit" class='btn btn-info' id="find-symptoms" name="button">Search</button>

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-console.log("hello");
 	
 
 	//New account creation for patient 
@@ -31,7 +30,7 @@ console.log("hello");
 	function(response){
 		parent.window.location="/api/patient/"+ response.id;
 		//	window.location.replace("/api/patient/"+ response.id);
-	});}
+	});
   });
 // });
 
