@@ -1,1 +1,0 @@
-var zipcodes = require('zipcodes');
