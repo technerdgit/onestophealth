@@ -21,23 +21,21 @@
   <div class="container">
     <div class="row">
       <!-- Input Form -->
-      <div class="col-md-3 pink-card z-depth-2" id="selector-bar">
-
-        <h3 class="change-font">Got symptoms?</h3>
-        <h5>Your Zip Code --> </h5>
-      </div>
-        <div class="col-md-3 pink-card z-depth-2">
-          <h3 class="change-font">Find a Doctor!</h3>
+      <div class="col m6 blue-card z-depth-2 push-s3" id="selector-bar">
+        <h3 class="change-font center">Got symptoms?</h3>
+      {{!-- </div>
+        <div class="col-md-6 pink-card z-depth-2"> --}}
+          <h3 class="change-font center">Find a Doctor!</h3>
           {{#each patients}}
-          <h5 id="userZip">{{this.patient_zip}}</h3>
+          <h5 class="hide" id="userZip">{{this.patient_zip}}</h5>
           {{/each}}
         </div>
 
       </div>
     <div class="row">
-      <div class="col-md-6 center pink-card z-depth-2">
-        <form class="find-doctor">
-          <input type="text" name="symptom" id="symptom" placeholder="What's wrong?">
+      <div class="col m6 center pink-card z-depth-2">
+        <form class="find-doctor center">
+          <input class="center" type="text" name="symptom" id="symptom" placeholder="What's wrong?">
           
           <button type="submit" href="#doctor-find" class='btn btn-info margin-bottom modal-trigger' id="find-symptoms" name="button">
             Search<i class="material-icons">search</i></button>
