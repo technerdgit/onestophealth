@@ -158,4 +158,16 @@ module.exports = function (app) {
                res.render('patients', emailDataObj);
             });
     });
+
+    app.get("/find_doctors/:email", function(req, res){
+        db.patients.findOne({
+            where: { email: req.params.email }
+
+        }).then(function (response){
+            var patientObj = {
+                patients: response
+            }
+            res.render("find_doctors", patientObj);
+        });
+    });  
 }

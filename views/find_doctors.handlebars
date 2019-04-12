@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="text/javascript" src="./assets/js/find_doctors.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <title>Doctor Finder</title>
 </head>
@@ -25,9 +24,13 @@
       <div class="col-md-3 pink-card z-depth-2" id="selector-bar">
 
         <h3 class="change-font">Got symptoms?</h3>
+        <h5>Your Zip Code --> </h5>
       </div>
         <div class="col-md-3 pink-card z-depth-2">
           <h3 class="change-font">Find a Doctor!</h3>
+          {{#each patients}}
+          <h5 id="userZip">{{this.patient_zip}}</h3>
+          {{/each}}
         </div>
 
       </div>
@@ -55,6 +58,7 @@
     
   </div>
           
+  <script type="text/javascript" src="../assets/js/find_doctors.js"></script>
 
 </body>
 {{!-- init modal script --}}
