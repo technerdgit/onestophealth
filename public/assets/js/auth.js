@@ -82,6 +82,50 @@ $(document).ready(function () {
         });
       }
 }
+
+patientSignInWidget = new OktaSignIn(signInWidgetConfig);
+
+function patientWidgetSuccessCallback(res) {
+  var key = '';
+  res0 = res[0];
+  res1 = res[1];
+    if (res[0]) {
+      key = Object.keys(res[0])[0];
+      console.log(key, res[0][0]);
+      patientSignInWidget.tokenManager.add(key, res[0]);
+    }
+    if (res[1]) {
+      key = Object.keys(res[1])[0];
+      patientSignInWidget.tokenManager.add(key, res[1]);
+    }
+    patientAccessToken = signInWidget.tokenManager.get("accessToken");
+
+    if (!patientAccessToken) {
+      return;
+    }
+    if (res.status === 'SUCCESS') {
+     // var token = signInWidget.tokenManager.get(key);
+      // var accessToken = signInWidget.tokenManager.get("accessToken");
+
+      $.ajax("/api/patient/" + res[1].claims.email, {
+        type: "GET",
+        headers: {
+          Authorization: 'Bearer ' + patientAccessToken
+        },
+        success: function (response) {
+          // Received messages!
+          // console.log('Messages', response);
+          //console.log(window.localStorage.getItem());
+        },
+        error: function (response) {
+          console.error(response);
+        }
+      }).then(function (response) {
+      //  location.reload();
+        parent.window.location = "/api/patient/" + res[1].claims.email;
+      });
+    }
+}
  
 
   function widgetErrorCallback(err) {
@@ -95,13 +139,17 @@ $(document).ready(function () {
 
   $("#patient-login-btn").on("click", function(){
     console.log("Patient Login Btn pressed");
-    signInWidget.renderEl({ el: '#patient-widget-container' }, widgetSuccessCallback, widgetErrorCallback);
+    signInWidget.renderEl({ el: '#patient-widget-container' }, patientWidgetSuccessCallback, widgetErrorCallback);
   });
 
   $("#doctor-logout-btn").on("click", function(){
     logout();
   });
-  
+
+  $("#patient-logout-btn").on("click", function(){
+    logout();
+  });
+
   function logout(){
     oktaSignIn.signOut("/");
     self.location = "landing";
