@@ -40,6 +40,7 @@ $(document).ready(function () {
 
   signInWidget = new OktaSignIn(signInWidgetConfig);
 
+
   function widgetSuccessCallback(res) {
     var key = '';
     res0 = res[0];
@@ -96,5 +97,15 @@ $(document).ready(function () {
     console.log("Patient Login Btn pressed");
     signInWidget.renderEl({ el: '#patient-widget-container' }, widgetSuccessCallback, widgetErrorCallback);
   });
+
+  $("#doctor-logout-btn").on("click", function(){
+    logout();
+  });
+  
+  function logout(){
+    oktaSignIn.signOut("/");
+    self.location = "landing";
+ }
+
 });
 

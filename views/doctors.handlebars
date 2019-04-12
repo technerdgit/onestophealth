@@ -7,6 +7,10 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <h5 class="right nav-name change-font">One Stop Health</h5>
+    <div class="col s2"><span class="flow-text"></span>
+      <a id="doctor-logout-btn" class="btn-small float-right" >
+                  <i class="material-icons add_box text-center">exit</i></a>
+    </div>
   </div>
 </nav>
 <br>
@@ -14,12 +18,16 @@
   <div class="row">
     <div class="col s5"><span class="flow-text">
         <div id="current-doctors" class="current-patient col s5 ">
+          {{#each doctors}}
+          <div id="current-patients">
+            <a href="/api/patient_doctors/{{id}}"> Patients</a>
+          </div>
           <table>
             <tr>
               <th>Doctor Information</th>
             </tr>
 
-            {{#each doctors}}
+
             <tr>
               <td><strong class="">Doctor's Name: </strong> {{this.doctor_name}}</td>
             </tr>
@@ -36,14 +44,11 @@
               <td><strong>Doctor Accepted Insurance(s): </strong>{{this.doctor_insurance_accepted}}
               </td>
             </tr>
-            {{/each}}
-
           </table>
+        {{/each}}
         </div>
+
       </span>
     </div>
   </div>
-   <div id="current-patients">
-     <a href="patient_doctors"> Patients</a>
-   </div>
 </div>
