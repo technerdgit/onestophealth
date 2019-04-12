@@ -1,15 +1,15 @@
-   <nav>
-        <div class="blue lighten-1 nav-wrapper">
-            <img src="/assets/images/logo-removebg.png" class="brand-logo center">
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="#">Our Vision</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <h5 class="right nav-name change-font">One Stop Health</h5>
-        </div>
-    </nav>
-    <br>
+<nav>
+  <div class="blue lighten-1 nav-wrapper">
+    <img src="/assets/images/logo-removebg.png" class="brand-logo center">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="#">Our Vision</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <h5 class="right nav-name change-font">One Stop Health</h5>
+  </div>
+</nav>
+<br>
 <div class="container blue-card z-depth-3">
 
   <div class="row">
@@ -23,14 +23,29 @@
               <button class="btn waves-effect waves-light" id="patientInfo" type="submit" name="action">Profile
                 <i class="material-icons right">favorite</i>
               </button></tr>
-              {{#each patients}}
-              <tr><td><strong>Name</strong></td><td>{{this.patient_name}}</td></tr>
-              <tr><td><strong>Address </strong></td><td> {{this.patient_primary_address1}}</td></tr>
-              <tr><td><strong>City, Zip </strong> </td><td>{{this.patient_city}}<span>   , </span> {{this.patient_zip}}</td></tr>
-              <tr><td><strong>Medical Insurance ID# </strong></td><td>{{this.patient_medical_insurance_id}}</td></tr>
-              <tr><td><strong>Dental Insurance ID# </strong></td><td>{{this.patient_dental_insurance_id}}</td></tr>
-              <hr>
-              {{/each}}
+            {{#each patients}}
+            <tr>
+              <td><strong>Name</strong></td>
+              <td>{{this.patient_name}}</td>
+            </tr>
+            <tr>
+              <td><strong>Address </strong></td>
+              <td> {{this.patient_primary_address1}}</td>
+            </tr>
+            <tr>
+              <td><strong>City, Zip </strong> </td>
+              <td>{{this.patient_city}}<span> , </span> {{this.patient_zip}}</td>
+            </tr>
+            <tr>
+              <td><strong>Medical Insurance ID# </strong></td>
+              <td>{{this.patient_medical_insurance_id}}</td>
+            </tr>
+            <tr>
+              <td><strong>Dental Insurance ID# </strong></td>
+              <td>{{this.patient_dental_insurance_id}}</td>
+            </tr>
+            <hr>
+            {{/each}}
           </table>
         </div>
       </span>
@@ -38,46 +53,59 @@
   </div>
 </div>
 <div class="container blue-card z-depth-3">
-   <div class="row">
   <form type="form-controls">
-      <div class="col s3">
-      <label class="white-text" for="searchDoctor"><strong style="font-size: 2em">Find Doctor near me</strong></label>
-      <br>
-      <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-25">
-      <a class="waves-effect waves-light btn-small bg-info"><i class="material-icons">search</i></a>
+    <div class="row">
+      <div class="col s6">
+        <select class="browser-default">
+          <option value="enabled selected">Doctor Type</option>
+          <option value="general">Family Physician</option>
+          <option value="optometrist">Optometrist</option>
+          <option value="dentist">Dentist</option>
+          <option value="cardiologist">Cardiologist</option>
+          <option value="neurologist">Neurologist</option>
+        </select>
       </div>
-        <div class="col s3">
-                <label>Doctor Type</label>
-           <select class="browser-default">
-            <option value="" enabled selected>Doctor Type</option>
-            <option value="general">Family Physician</option>
-            <option value="optometrist">Optometrist</option>
-            <option value="dentist">Dentist</option>
-            <option value="cardiologist">Cardiologist</option>
-            <option value="neurologist">Neurologist</option>
-          </select>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+        <label class="white-text" for="searchDoctor"><strong style="font-size: 2em">Find Doctor near me</strong></label>
+        <br>
+        <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-50">
+        <a class="waves-effect waves-light btn-small bg-info"><i class="material-icons">search</i></a>
+      </div>
+    </div>
+    <div class="row">
+
   </form>
 </div>
 </div>
 
 {{#*inline  "doctorzip"}}
 <table id="doctor-data">
-{{#each doctors}}
-<tr><td><strong>Name</strong></td><td>{{this.doctor_name}}</td></tr>
-  <tr><td><strong>Address</strong></td><td>{{this.doctor_primary_address1}}</td></tr>
-  <tr><td><strong>City</strong></td><td>{{this.doctor_city}}</td></tr>
-  <tr><td><strong>Zip</strong></td><td>{{this.doctor_zip}}</td></tr>
+  {{#each doctors}}
+  <tr>
+    <td><strong>Name</strong></td>
+    <td>{{this.doctor_name}}</td>
+  </tr>
+  <tr>
+    <td><strong>Address</strong></td>
+    <td>{{this.doctor_primary_address1}}</td>
+  </tr>
+  <tr>
+    <td><strong>City</strong></td>
+    <td>{{this.doctor_city}}</td>
+  </tr>
+  <tr>
+    <td><strong>Zip</strong></td>
+    <td>{{this.doctor_zip}}</td>
+  </tr>
   <hr>
 
-   <h5 class="text-center">Doctors nearby</h5> 
+  <h5 class="text-center">Doctors nearby</h5>
   <br>
   <h5 class="text-center">Doctor info: <br> {{this.doctors}}</h5>
-{{!-- response[i] // USE JQUERY --}}
-  
-  {{/each}}
-  </table>
-{{/inline}}
-  
+  {{!-- response[i] // USE JQUERY --}}
 
-  
+  {{/each}}
+</table>
+{{/inline}}
