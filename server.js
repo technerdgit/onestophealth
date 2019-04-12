@@ -39,6 +39,12 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes")(app);
 
+app.use(cors)
+// Add JWT tokens for api
+var OktaJwtVerifier = require('@okta/jwt-verifier');
+
+app.use(OktaJwtVerifier);
+
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
  db.sequelize.sync({ force: false }).then(function() {
