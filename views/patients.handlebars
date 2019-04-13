@@ -27,6 +27,9 @@
               </button>
                <button class="btn waves-effect waves-light float-right" id="patient-logout" >Logout
                 <i class="material-icons right">logout</i>
+                </button>
+              <button class="btn waves-effect waves-light" id="toggle">Toggle
+                <i class="material-icons right">favorite</i>
               </button></tr>
             {{#each patients}}
             <tr>
@@ -35,7 +38,7 @@
               <td>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">account_circle</i>
-                  <input disabled id="patient-name" type="text" class="validate" value={{this.patient_name}}>
+                  <input disabled id="patient-name" type="input" class="validate" value={{this.patient_name}}>
                 </div>
 
               </td>
@@ -44,7 +47,7 @@
               <td>
                 <div class="input-field col s6">
                   <i class="material-icons prefix">address_circle</i>
-                <input disabled  id="address" type="text" class="validate" data-length=100 value={{this.patient_primary_address1}} >
+                <input disabled  id="address" type="input" class="validate" data-length=100 value={{this.patient_primary_address1}} >
                </div>
                 </td>
             </tr>
@@ -86,7 +89,7 @@
         <div class="col s6">
         <label class="white-text" for="searchDoctor"><strong style="font-size: 2em">Find Doctor near me</strong></label>
         <br>
-        <input placeholder="Enter a Zipcode" type="text" id="searchDoctor" class="w-50">
+        <input placeholder="Enter a Zipcode" type="input" id="searchDoctor" class="w-50">
         <a class="waves-effect waves-light btn-small bg-info"><i class="material-icons">search</i></a>
       </div>
     </div>
@@ -152,5 +155,9 @@
     $("#patient-logout").on("click", function(){
        logout();
     });
-
+    
+    $("#toggle").click(function(){
+      $("#patient-name").toggle();
+      $("#address").toggle();
+    });
 </script>
