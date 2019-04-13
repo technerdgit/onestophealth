@@ -46,3 +46,9 @@ body{
     margin-right: 15px;
    
 }
+
+.pulse-time {
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+  }
