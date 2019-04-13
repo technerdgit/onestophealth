@@ -40,24 +40,24 @@ module.exports = function (app) {
     //             res.status(401).send(err.message);
     //         });
     // }
-  // Find the doctor based on his login using his email
-  app.get("/api/doctors/:okta_email/:zip?",  function(req, res) {
-    db.doctors.findAll({
-        where: {
-            email: req.params.okta_email
-        }
-    }).then(function(data){
-        var doctorObj = {
-            doctors: data
-        };
-        if(req.params.zip !== undefined){
-            res.json("doctorObj");
-        }
-        else{
-        res.render("doctors", doctorObj);
-        }
+    // Find the doctor based on his login using his email
+    app.get("/api/doctors/:okta_email/:zip?", function (req, res) {
+        db.doctors.findAll({
+            where: {
+                email: req.params.okta_email
+            }
+        }).then(function (data) {
+            var doctorObj = {
+                doctors: data
+            };
+            if (req.params.zip !== undefined) {
+                res.json("doctorObj");
+            }
+            else {
+                res.render("doctors", doctorObj);
+            }
+        });
     });
-});
 
 
     app.get("/api/patient/doctor_zip/:zip?", function (req, res) {
@@ -154,7 +154,7 @@ module.exports = function (app) {
             doctor_zip: req.body.doctor_zip,
             doctor_login_name: req.body.doctor_login_name,
             doctor_login_password: req.body.doctor_login_password,
-            doctor_insurance_accepted: req.body.doctor_insurance_accepted 
+            doctor_insurance_accepted: req.body.doctor_insurance_accepted
         }).then(function (results) {
             res.json(results);
         });
@@ -179,32 +179,65 @@ module.exports = function (app) {
         });
     });
 
-      // Add route to get user id based on user email from okta
-      app.get("/api/patient/:okta_email",  function (req, res) {
-
+    // Add route to get user id based on user email from okta
+    app.get("/api/patient/:okta_email", function (req, res) {
         db.patients.findAll({
-        
             where: { email: req.params.okta_email }
+        }).then(function (response) {
 
-            }).then(function (response) {
-
-               var emailDataObj = {
-                   patients: response 
-               };
-               
-               res.render('patients', emailDataObj);
-            });
+            var emailDataObj = {
+                patients: response
+            };
+            res.render('patients', emailDataObj);
+        });
     });
 
-    app.get("/find_doctors/:email", function(req, res){
+    app.post("/api/patient", function (req, res) {
+        db.patients.findOne({
+            where: { email: req.body.email }
+        }).then(function (response) {
+            if (response) {
+
+                var emailDataObj = {
+                    patients: response
+                };
+                res.render('patients', emailDataObj);
+            }
+            else {
+
+                db.patients.create({
+                    patient_name: req.body.patient_name,
+                    email: req.body.email,
+                    patient_primary_address1: req.body.patient_primary_address1,
+                    patient_city: req.body.patient_city,
+                    patient_zip: req.body.patient_zip,
+                    patient_medical_provider_id: req.body.patient_medical_provider_id,
+                    patient_medical_insurance_id: req.body.patient_medical_insurance_id,
+                    patient_dental_provider_id: req.body.patient_dental_provider_id,
+                    patient_dental_insurance_id: req.body.patient_dental_insurance_id,
+                    patient_login_name: req.body.patient_login_name,
+                    patient_login_password: req.body.patient_login_password
+                }).then(function (results) {
+                    var emailCreateObj = {
+                        patients: results
+                    };
+                    res.render('patients', emailCreateObj);
+                });
+            }
+        });
+
+
+    });
+
+    app.get("/find_doctors/:email", function (req, res) {
         db.patients.findOne({
             where: { email: req.params.email }
 
-        }).then(function (response){
+        }).then(function (response) {
             var patientObj = {
                 patients: response
             }
             res.render("find_doctors", patientObj);
         });
-    });  
+    });
 }

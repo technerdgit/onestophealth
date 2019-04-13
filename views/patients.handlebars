@@ -1,3 +1,4 @@
+
 <nav>
   <div class="blue lighten-1 nav-wrapper">
     <a href="/"><img src="/assets/images/logo-removebg.png" class="brand-logo center animated pulse pulse-time"></a>
@@ -7,6 +8,7 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <h5 class="right nav-name change-font">One Stop Health</h5>
+               
   </div>
 </nav>
 <br>
@@ -22,15 +24,29 @@
             <tr>
               <button class="btn waves-effect waves-light" id="patientInfo" type="submit" name="action">Profile
                 <i class="material-icons right">favorite</i>
+              </button>
+               <button class="btn waves-effect waves-light float-right" id="patient-logout" >Logout
+                <i class="material-icons right">logout</i>
               </button></tr>
             {{#each patients}}
             <tr>
-              <td><strong>Name</strong></td>
-              <td>{{this.patient_name}}</td>
+              {{!-- <td><strong>Name</strong></td>
+              <td> --}}
+              <td>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input disabled id="patient-name" type="text" class="validate" value={{this.patient_name}}>
+                </div>
+
+              </td>
             </tr>
             <tr>
-              <td><strong>Address </strong></td>
-              <td> {{this.patient_primary_address1}}</td>
+              <td>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">address_circle</i>
+                <input disabled  id="address" type="text" class="validate" data-length=100 value={{this.patient_primary_address1}} >
+               </div>
+                </td>
             </tr>
             <tr>
               <td><strong>City, Zip </strong> </td>
@@ -109,3 +125,32 @@
   {{/each}}
 </table>
 {{/inline}}
+
+<script>
+   var logoutConf= {
+         baseUrl: 'https://dev-527021.okta.com',
+    clientId: '${PATIENT_CLIENT_ID}',
+    redirectUri: 'http://localhost:8080',
+    authParams: {
+      issuer: "https://dev-527021.okta.com/oauth2/default",
+      responseType: ['token', 'id_token'],
+      scopes: ['openid', 'email', 'profile'],
+    },
+   }
+    oktaSignIn = new OktaSignIn(logoutConf);
+    function logout() {
+    console.log("logout pressed");
+    oktaSignIn.signOut("/");
+    self.location = "../../";
+  }
+
+   $("#doctor-logout-btn").on("click", function() {
+      console.log("Doctor Logout Button pressed");
+      logout();
+    });
+
+    $("#patient-logout").on("click", function(){
+       logout();
+    });
+
+</script>
