@@ -47,6 +47,13 @@ body{
    
 }
 
+
+.pulse-time {
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+  }
+
 td, tr{
     border-color: transparent;
 }
@@ -54,3 +61,4 @@ td, tr{
 input {
     font-size: 4em;
 }
+
