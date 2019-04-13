@@ -28,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
       patient_medical_provider_id: {
         type: DataTypes.INTEGER,
         allowNull: true
+        
       } ,
       patient_medical_insurance_id: {
         type: DataTypes.INTEGER,

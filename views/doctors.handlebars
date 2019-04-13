@@ -7,10 +7,6 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <h5 class="right nav-name change-font">One Stop Health</h5>
-    <div class="col s2"><span class="flow-text"></span>
-      <a id="doctor-logout-btn" class="btn-small float-right" >
-                  <i class="material-icons add_box text-center">exit</i></a>
-    </div>
   </div>
 </nav>
 <br>
@@ -25,9 +21,10 @@
           <table>
             <tr>
               <th>Doctor Information</th>
+              <th>  <button class="btn waves-effect waves-light float-right" id="doctor-logout" >Logout
+                <i class="material-icons right">logout</i>
+              </button></th>
             </tr>
-
-
             <tr>
               <td><strong class="">Doctor's Name: </strong> {{this.doctor_name}}</td>
             </tr>
@@ -52,3 +49,28 @@
     </div>
   </div>
 </div>
+
+<script>
+   var logoutConf= {
+         baseUrl: 'https://dev-527021.okta.com',
+    clientId: '${DOCTOR_CLIENT_ID}',
+    redirectUri: 'http://localhost:8080',
+    authParams: {
+      issuer: "https://dev-527021.okta.com/oauth2/default",
+      responseType: ['token', 'id_token'],
+      scopes: ['openid', 'email', 'profile'],
+    },
+   }
+    oktaSignIn = new OktaSignIn(logoutConf);
+    function logout() {
+    console.log("logout pressed");
+    oktaSignIn.signOut("/");
+    self.location = "../../";
+  }
+
+   $("#doctor-logout").on("click", function() {
+      console.log("Doctor Logout Button pressed");
+      logout();
+    });
+
+</script>

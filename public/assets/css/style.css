@@ -46,3 +46,11 @@ body{
     margin-right: 15px;
    
 }
+
+td, tr{
+    border-color: transparent;
+}
+
+input {
+    font-size: 4em;
+}

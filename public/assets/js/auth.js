@@ -1,7 +1,3 @@
-$(document).ready(function () {
-
-  var accessToken = '';
-
   var signInWidgetConfig = {
 
     // Enable or disable widget functionality with the following options. Some of these features require additional configuration in your Okta admin settings. Detailed information can be found here: https://github.com/okta/okta-signin-widget#okta-sign-in-widget
@@ -109,11 +105,11 @@ $(document).ready(function () {
       //router: true,                       // Leave this set to true for the API demo
     },
     baseUrl: 'https://dev-527021.okta.com',
-    clientId: '0oafzij4dl6bUC13R356',
+    clientId: "0oafzij4dl6bUC13R356",
     redirectUri: 'http://localhost:8080',
     authParams: {
       issuer: "https://dev-527021.okta.com/oauth2/default",
-    //  aud: "api://default",
+      //  aud: "api://default",
       responseType: ['token', 'id_token'],
       scopes: ['openid', 'email', 'profile'],
     },
@@ -146,12 +142,13 @@ $(document).ready(function () {
         xhrFields: { withCredentials: true },
         accept: 'application/json'
       }).done(function (data) {
+        console.log(data);
         var oktaData = {
           patient_name: (data.profile.firstName + " " + data.profile.lastName),
           patient_primary_address1: data.profile.streetAddress,
-          patient_city: data.profile.city,
+          patient_city: data.profile.locality,
           email: data.profile.email,
-          patient_zip: data.profile.zipCode
+          patient_zip: data.profile.postalCode
         };
         console.log(oktaData);
         $.ajax("/api/patient", {
@@ -163,66 +160,60 @@ $(document).ready(function () {
           xhrFields: { withCredentials: true },
           accept: 'application/json'
         }).then(function (dbdata) {
-          console.log("output of " , dbdata);
-         // if (dbdata) {
+          console.log("output of ", dbdata);
+          // if (dbdata) {
           parent.window.location = "/api/patient/" + res[1].claims.email;
-            $.ajax("/api/patient" + dbdata.email, {
-              type: "GET",
-              headers: {
-                Authorization: "Bearer" + patientAccessToken.accessToken
-              },
-              // xhrFields: { withCredentials: false },
-              // accept: 'application/json',
-              success: function(){
-                console.log("Before redirect to web page" , dbdata.email, res[1].claims.email)
-                parent.window.location = "/api/patient/" + dbdata.email;
-              },
-              error: function(){
-                  console.log("There is an error rendering");
-              }
-            }).then(function (presp) {
-              console.log("I am here")
+          $.ajax("/api/patient" + dbdata.email, {
+            type: "GET",
+            headers: {
+              Authorization: "Bearer" + patientAccessToken.accessToken
+            },
+            // xhrFields: { withCredentials: false },
+            // accept: 'application/json',
+            success: function () {
+              console.log("Before redirect to web page", dbdata.email, res[1].claims.email)
               parent.window.location = "/api/patient/" + dbdata.email;
-            });
-         // }
+            },
+            error: function () {
+              console.log("There is an error rendering");
+            }
+          }).then(function (presp) {
+            console.log("I am here")
+            parent.window.location = "/api/patient/" + dbdata.email;
+          });
+          // }
         });
-    });
+      });
     }
   }
 
 
-function widgetErrorCallback(err) {
-  console.log(err);
-}
+  function widgetErrorCallback(err) {
+    console.log(err);
+  }
 
-$("#doctor-login-btn").on("click", function () {
-  // Before invoking the signin /signup page remove existing rendering 
-  signInWidget.remove();
-  patientSignInWidget.remove();
-  signInWidget.renderEl({ el: '#doctor-widget-container' }, widgetSuccessCallback, widgetErrorCallback);
-});
+  function logout() {
+    console.log("logout pressed");
+    oktaSignIn.signOut("/");
+    self.location = "landing";
+  }
 
-$("#patient-login-btn").on("click", function () {
-  // Before invoking the signin /signup page remove existing rendering 
-  signInWidget.remove();
-  patientSignInWidget.remove();
-  patientSignInWidget.renderEl({ el: '#patient-widget-container' }, patientWidgetSuccessCallback, widgetErrorCallback);
+  $(document).ready(function () {
 
-});
+    $("#doctor-login-btn").on("click", function () {
+      // Before invoking the signin /signup page remove existing rendering 
+      signInWidget.remove();
+      patientSignInWidget.remove();
+      signInWidget.renderEl({ el: '#doctor-widget-container' }, widgetSuccessCallback, widgetErrorCallback);
+    });
 
-$("#doctor-logout-btn").on("click", function () {
-  console.log("Doctor Logout Button pressed");
-  logout();
-});
+    $("#patient-login-btn").on("click", function () {
+      // Before invoking the signin /signup page remove existing rendering 
+      signInWidget.remove();
+      patientSignInWidget.remove();
+      patientSignInWidget.renderEl({ el: '#patient-widget-container' }, patientWidgetSuccessCallback, widgetErrorCallback);
 
-$("#patient-logout-btn").on("click", function () {
-  logout();
-});
+    });
 
-// logout function from the session
-function logout() {
-  oktaSignIn.signOut("/");
-  self.location = "landing";
-}
-});
-
+   
+  });
