@@ -34,5 +34,6 @@
     "sequelize-cli": "^5.4.0",
     "serve-favicon": "^2.5.0",
     "zipcodes": "^8.0.0"
-  }
+  },
+  "devDependencies": {}
 }
