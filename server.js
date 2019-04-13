@@ -45,6 +45,10 @@ var OktaJwtVerifier = require('@okta/jwt-verifier');
 
 app.use(OktaJwtVerifier);
 
+// Add dotenv to hide sensitive data via .env file
+require('dotenv').config();
+
+
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
  db.sequelize.sync({ force: false }).then(function() {
