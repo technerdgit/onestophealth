@@ -27,6 +27,9 @@
               </button>
                <button class="btn waves-effect waves-light float-right" id="patient-logout" >Logout
                 <i class="material-icons right">logout</i>
+                </button>
+              <button class="btn waves-effect waves-light" id="toggle">Toggle
+                <i class="material-icons right">favorite</i>
               </button></tr>
             {{#each patients}}
             <tr>
@@ -152,5 +155,9 @@
     $("#patient-logout").on("click", function(){
        logout();
     });
-
+    
+    $("#toggle").click(function(){
+      $("#patient-name").toggle();
+      $("#address").toggle();
+    });
 </script>
