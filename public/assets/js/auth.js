@@ -113,6 +113,7 @@ $(document).ready(function () {
     redirectUri: 'http://localhost:8080',
     authParams: {
       issuer: "https://dev-527021.okta.com/oauth2/default",
+    //  aud: "api://default",
       responseType: ['token', 'id_token'],
       scopes: ['openid', 'email', 'profile'],
     },
@@ -138,62 +139,90 @@ $(document).ready(function () {
       return;
     }
     if (res.status === 'SUCCESS') {
-      // var token = signInWidget.tokenManager.get(key);
-      // var accessToken = signInWidget.tokenManager.get("accessToken");
-
-      $.ajax("/api/patient/" + res[1].claims.email, {
+      var baseUrl = 'https://dev-527021.okta.com';
+      $.ajax({
+        url: baseUrl + '/api/v1/users/me',
         type: "GET",
-        headers: {
-          Authorization: 'Bearer ' + patientAccessToken
-        },
-        success: function (response) {
-          // Received messages!
-          // console.log('Messages', response);
-          //console.log(window.localStorage.getItem());
-        },
-        error: function (response) {
-          console.error(response);
-        }
-      }).then(function (response) {
-        //  location.reload();
-        parent.window.location = "/api/patient/" + res[1].claims.email;
-      });
+        xhrFields: { withCredentials: true },
+        accept: 'application/json'
+      }).done(function (data) {
+        var oktaData = {
+          patient_name: (data.profile.firstName + " " + data.profile.lastName),
+          patient_primary_address1: data.profile.streetAddress,
+          patient_city: data.profile.city,
+          email: data.profile.email,
+          patient_zip: data.profile.zipCode
+        };
+        console.log(oktaData);
+        $.ajax("/api/patient", {
+          method: "POST",
+          data: oktaData,
+          headers: {
+            Authorization: 'Bearer ' + patientAccessToken.accessToken
+          },
+          xhrFields: { withCredentials: true },
+          accept: 'application/json'
+        }).then(function (dbdata) {
+          console.log("output of " , dbdata);
+         // if (dbdata) {
+          parent.window.location = "/api/patient/" + res[1].claims.email;
+            $.ajax("/api/patient" + dbdata.email, {
+              type: "GET",
+              headers: {
+                Authorization: "Bearer" + patientAccessToken.accessToken
+              },
+              // xhrFields: { withCredentials: false },
+              // accept: 'application/json',
+              success: function(){
+                console.log("Before redirect to web page" , dbdata.email, res[1].claims.email)
+                parent.window.location = "/api/patient/" + dbdata.email;
+              },
+              error: function(){
+                  console.log("There is an error rendering");
+              }
+            }).then(function (presp) {
+              console.log("I am here")
+              parent.window.location = "/api/patient/" + dbdata.email;
+            });
+         // }
+        });
+    });
     }
   }
 
 
-  function widgetErrorCallback(err) {
-    console.log(err);
-  }
+function widgetErrorCallback(err) {
+  console.log(err);
+}
 
-  $("#doctor-login-btn").on("click", function () {
-    // Before invoking the signin /signup page remove existing rendering 
-    signInWidget.remove();
-    patientSignInWidget.remove();
-    signInWidget.renderEl({ el: '#doctor-widget-container' }, widgetSuccessCallback, widgetErrorCallback);
-  });
+$("#doctor-login-btn").on("click", function () {
+  // Before invoking the signin /signup page remove existing rendering 
+  signInWidget.remove();
+  patientSignInWidget.remove();
+  signInWidget.renderEl({ el: '#doctor-widget-container' }, widgetSuccessCallback, widgetErrorCallback);
+});
 
-  $("#patient-login-btn").on("click", function () {
-    // Before invoking the signin /signup page remove existing rendering 
-    signInWidget.remove();
-    patientSignInWidget.remove();
-    patientSignInWidget.renderEl({ el: '#patient-widget-container' }, patientWidgetSuccessCallback, widgetErrorCallback);
+$("#patient-login-btn").on("click", function () {
+  // Before invoking the signin /signup page remove existing rendering 
+  signInWidget.remove();
+  patientSignInWidget.remove();
+  patientSignInWidget.renderEl({ el: '#patient-widget-container' }, patientWidgetSuccessCallback, widgetErrorCallback);
 
-  });
+});
 
-  $("#doctor-logout-btn").on("click", function () {
-    console.log("Doctor Logout Button pressed");
-    logout();
-  });
+$("#doctor-logout-btn").on("click", function () {
+  console.log("Doctor Logout Button pressed");
+  logout();
+});
 
-  $("#patient-logout-btn").on("click", function () {
-    logout();
-  });
+$("#patient-logout-btn").on("click", function () {
+  logout();
+});
 
-  // logout function from the session
-  function logout() {
-    oktaSignIn.signOut("/");
-    self.location = "landing";
-  }
+// logout function from the session
+function logout() {
+  oktaSignIn.signOut("/");
+  self.location = "landing";
+}
 });
 

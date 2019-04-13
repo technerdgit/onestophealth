@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       patient_primary_address1: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       patient_primary_address2: {
         type: DataTypes.STRING,
@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       patient_city: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       patient_state: {
         type: DataTypes.STRING,
@@ -23,23 +23,23 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       patient_zip: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       } ,
       patient_medical_provider_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       } ,
       patient_medical_insurance_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       } ,
       patient_dental_provider_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       } ,
       patient_dental_insurance_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       } ,
       patient_login_name: {
         type: DataTypes.STRING,
