@@ -1,3 +1,5 @@
+import { UPDATE } from "sequelize/types/lib/query-types";
+
 // $(document).ready(function() {
 //     $(document).on("click", "#patientInfo", viewPatientInfo);
 // })
@@ -43,3 +45,21 @@ $(document).ready(function () {
         });
     });
 });
+
+$(document).ready(function(){
+    $("#toggle").on("click", function () {
+var updateInfo = {
+        patient_city = $(this).data("patient_city"),
+        patient_zip = $(this).data("patient_zip"),
+        patient_medical_insurance_id = $(this).data("patient_medical_insurance_id"),
+        patient_dental_insurance_id = $(this).data("patient_dental_insurance_id")
+    }
+        $.ajax("/api/patient/:okta_email" , {
+            type: "PUT",
+            data: updateInfo,
+
+        }).then(function (response) {
+            location.reload();
+        })
+    })
+})
