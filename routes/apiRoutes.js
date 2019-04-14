@@ -1,6 +1,9 @@
 // var Sequelize = require("sequelize");
 var db = require("../models");
 
+ 
+
+
 // api Route for Get and Post of Doctors and Patients
 // Each route gets , puts and Posts data from the mySql database
 module.exports = function (app) {
@@ -213,7 +216,7 @@ module.exports = function (app) {
 
 
 // Insert record into the Doctors table using doctors model and Values being passed from Okta
- app.post("/api/doctor", function (req, res) {
+ app.post("/api/doctor",  function(req, res) {
     db.doctors.findOne({
         where: { email: req.body.email }
     }).then(function (response) {
