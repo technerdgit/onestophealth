@@ -1,5 +1,3 @@
-import { UPDATE } from "sequelize/types/lib/query-types";
-
 // $(document).ready(function() {
 //     $(document).on("click", "#patientInfo", viewPatientInfo);
 // })
