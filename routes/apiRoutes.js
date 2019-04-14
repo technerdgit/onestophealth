@@ -1,46 +1,11 @@
 // var Sequelize = require("sequelize");
 var db = require("../models");
 
-
+// api Route for Get and Post of Doctors and Patients
+// Each route gets , puts and Posts data from the mySql database
 module.exports = function (app) {
-    // var OktaJwtVerifier = require('@okta/jwt-verifier');
 
-    // oktaJwtVerifier = new OktaJwtVerifier({
-    //     issuer: 'https://dev-527021.okta.com/oauth2/default',
-    //     clientId: '0oafzij4dl6bUC13R356',
-    //     assertClaims: {
-    //        // aud: 'api://default',
-    //        userName : clientId
-    //     },
-    // });
-    // oktaJwtVerifier.verifyAccessToken("accesstoken")
-    // .then(jwt => {
-    //   // the token is valid
-    //   console.log(jwt.claims);
-    // })
-    // .catch(err => {
-    //   console.log(JSON.stingify(err))
-    // });
-    // function authenticationRequired(req, res, next) {
-    //     const authHeader = req.headers.authorization || '';
-    //     const match = authHeader.match(/Bearer (.+)/);
-
-    //     if (!match) {
-    //         return res.status(401).end();
-    //     }
-
-    //     const accessToken = match[1];
-
-    //     return oktaJwtVerifier.verifyAccessToken(accessToken)
-    //         .then((jwt) => {
-    //             req.jwt = jwt;
-    //             next();
-    //         })
-    //         .catch((err) => {
-    //             res.status(401).send(err.message);
-    //         });
-    // }
-    // Find the doctor based on his login using his email
+    // This route is for zip code for doctor record
     app.get("/api/doctors/:okta_email/:zip?", function (req, res) {
         db.doctors.findAll({
             where: {
@@ -59,7 +24,7 @@ module.exports = function (app) {
         });
     });
 
-
+    // Not in use but is for testing the better doctor api
     app.get("/api/patient/doctor_zip/:zip?", function (req, res) {
         db.doctors.findAll({
             where: {
@@ -160,8 +125,9 @@ module.exports = function (app) {
         });
     });
 
-    // Insert record into the Patient table using patients model
+    // Insert record into the Patient table using patients model - Registration using own form
     app.post("/api/patients", function (req, res) {
+
         db.patients.create({
             patient_name: req.body.patient_name,
             email: req.body.email,
@@ -179,7 +145,7 @@ module.exports = function (app) {
         });
     });
 
-    // Add route to get user id based on user email from okta
+    // Add route to get user id based on user email signin from Okta
     app.get("/api/patient/:okta_email", function (req, res) {
         db.patients.findAll({
             where: { email: req.params.okta_email }
@@ -192,6 +158,9 @@ module.exports = function (app) {
         });
     });
 
+    // PATIENT Record Find record for the user in this post and if record exists render back the resut
+    // if it does not existing use the Okta data and create record in database.
+    // Then render the page back to the user.
     app.post("/api/patient", function (req, res) {
         db.patients.findOne({
             where: { email: req.body.email }
@@ -229,6 +198,7 @@ module.exports = function (app) {
 
     });
 
+    // Find the doctor if the user exists. - May be redundant as Okta handles using next Route
     app.get("/find_doctors/:email", function (req, res) {
         db.patients.findOne({
             where: { email: req.params.email }
@@ -240,4 +210,42 @@ module.exports = function (app) {
             res.render("find_doctors", patientObj);
         });
     });
+
+
+// Insert record into the Doctors table using doctors model and Values being passed from Okta
+ app.post("/api/doctor", function (req, res) {
+    db.doctors.findOne({
+        where: { email: req.body.email }
+    }).then(function (response) {
+        if (response) {
+
+            var doctorEmailDataObj = {
+                patients: response
+            };
+            res.render('doctors', doctorEmailDataObj);
+        }
+        else {
+            db.doctors.create({
+                doctor_name: req.body.doctor_name,
+                email: req.body.email,
+                doctor_type: req.body.doctor_type,
+                doctor_specialization: req.body.doctor_specialization,
+                doctor_type: req.body.doctor_type,
+                doctor_primary_address1: req.body.doctor_primary_address1,
+                doctor_city: req.body.doctor_city,
+                doctor_state: req.body.doctor_state,
+                doctor_zip: req.body.doctor_zip,
+                doctor_login_name: req.body.doctor_login_name,
+                doctor_login_password: req.body.doctor_login_password,
+                doctor_insurance_accepted: req.body.doctor_insurance_accepted
+            }).then(function (results) {
+
+                var doctorEmailDataObj = {
+                    patients: response
+                };
+                res.render('doctors', doctorEmailDataObj);
+            });
+        };
+    });
+});
 }
