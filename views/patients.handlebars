@@ -15,12 +15,9 @@
 <div class="container blue-card z-depth-3">
 
   <div class="row">
-    <div class="col s5"><span class="flow-text">
-        <div id="current-patient" class="current-patient ">
+    <div class="col s12"><span class="flow-text">
+        <div id="current-patient col s12" class="current-patient ">
           <table>
-            {{!-- <tr>
-              <th>Patient</th>
-            </tr> --}}
             <tr>
               <button class="btn waves-effect waves-light" id="patientInfo" type="submit" name="action">Profile
                 <i class="material-icons right">favorite</i>
@@ -35,25 +32,32 @@
             <tr>
               {{!-- <td><strong>Name</strong></td>
               <td> --}}
+                 <td><strong>Name </strong> </td>
               <td>
-                <div class="input-field col s12">
-                  <i class="material-icons prefix">account_circle</i>
-                  <input disabled id="patient-name" type="input" class="validate" value={{this.patient_name}}>
+                <div class="input-field">
+                  <label for="patient_name">{{this.patient_name}}</label> 
+                  <input enabled id="patient-name" type="input" class="validate" value={{this.patient_name}}>
                 </div>
-
               </td>
             </tr>
             <tr>
+                 <td><strong>Address </strong> </td>
               <td>
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">address_circle</i>
-                <input disabled  id="address" type="input" class="validate" data-length=100 value={{this.patient_primary_address1}} >
+                <div class="input-field">
+                  <label for="address">{{this.patient_primary_address1}}</label>
+                <input enabled  id="address" type="input" class="validate"  value={{this.patient_primary_address1}}>
                </div>
                 </td>
             </tr>
             <tr>
-              <td><strong>City, Zip </strong> </td>
-              <td>{{this.patient_city}}<span> , </span> {{this.patient_zip}}</td>
+              <td><strong>City, Zip Code</strong> </td>
+              <td>
+                <div class="input-field">
+                <input enabled  id="city" type="input" class="validate"  value={{this.patient_city}} >
+                <input enabled  id="zip" type="input" class="validate" data-length="120" value={{this.patient_zip}} >
+               </div>
+               
+              </td>
             </tr>
             <tr>
               <td><strong>Medical Insurance ID# </strong></td>

@@ -58,7 +58,10 @@ td, tr{
     border-color: transparent;
 }
 
-input {
-    font-size: 4em;
+label {
+    width: 60%;
+    font-size: 1em;
+    background-color: transparent;
+    border: transparent;
 }
 

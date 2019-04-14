@@ -24,7 +24,7 @@ var signInWidgetConfig = {
   authParams: {
     issuer: "https://dev-527021.okta.com/oauth2/default",
     responseType: ['token', 'id_token'],
-    scopes: ['openid', 'email', 'profile'],
+    scopes: ['onestophealth','openid', 'email', 'profile'],
   },
 };
 
@@ -76,7 +76,7 @@ function widgetSuccessCallback(res) {
         method: "POST",
         data: oktaData,
         headers: {
-          Authorization: 'Bearer ' + accessToken.accessToken
+          Authorization: 'Bearer ' + accessToken
         },
         xhrFields: { withCredentials: true },
         accept: 'application/json'
@@ -133,7 +133,7 @@ var patientSignInWidgetConfig = {
     issuer: "https://dev-527021.okta.com/oauth2/default",
     //  aud: "api://default",
     responseType: ['token', 'id_token'],
-    scopes: ['openid', 'email', 'profile'],
+    scopes: ['onestophealth','openid', 'email', 'profile'],
   },
 };
 
