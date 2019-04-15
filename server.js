@@ -15,6 +15,7 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 var exphbs = require("express-handlebars");
 
+// import path/cors npm modules
 var path = require("path");
 var cors = require('cors');
 // var zipcodes = require('zipcodes');
@@ -36,6 +37,7 @@ app.use(favicon(__dirname + "/public/assets/images/favicon.ico"))
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
+// init routes
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes")(app);
 

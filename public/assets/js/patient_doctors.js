@@ -1,14 +1,8 @@
 
 $(document).ready(function() {
-/* global moment */
-
-// blogContainer holds all of our posts
-// var blogContainer = $(".blog-container");
-// var postCategorySelect = $("#category");
-// Click events for the edit and delete buttons
-//   $(".decline-patient").on("click", function(events){ 
+// on click listener for declining patient 
 $(document).on("click", ".decline-patient", declineDeclinePatient);
-
+// decline patient function
 function declineDeclinePatient(){
   
     alert("pressed decline button" + JSON.stringify($(this).children("new-patient-request")));
@@ -16,6 +10,7 @@ function declineDeclinePatient(){
     var doctorId = $(this).data("doctorId");
 
     var updatePatient = {
+      // update patient fields
         patient_request: false,
         patientId: patientId,
         doctorId: doctorId,
@@ -23,10 +18,12 @@ function declineDeclinePatient(){
       };
       alert(doctorId);
      $.ajax("/api/patient_doctors/" + doctorId   , {
+      // ajax put request for updating patient in RDBMS
          type: "PUT",
          data: updatePatient
     })
       .then(function() {
+        // reloads page after promise
         location.reload();
       });
 
