@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="../../assets/js/patients.js"></script>
 <nav>
   <div class="blue lighten-1 nav-wrapper">
     <a href="/"><img src="/assets/images/logo-removebg.png" class="brand-logo center animated pulse pulse-time"></a>
@@ -8,56 +8,36 @@
       <li><a href="#">Contact</a></li>
     </ul>
     <h5 class="right nav-name change-font">One Stop Health</h5>
-               
+
   </div>
 </nav>
 <br>
 <div class="container blue-card z-depth-3">
-
   <div class="row">
     <div class="col s12"><span class="flow-text">
         <div id="current-patient col s12" class="current-patient ">
           <table>
             <tr>
               <button class="btn waves-effect waves-light" id="patientInfo" type="submit" name="action">Profile
-                <i class="material-icons right">favorite</i>
+                <i class="material-icons right">person</i>
               </button>
-               <button class="btn waves-effect waves-light float-right" id="patient-logout" >Logout
+              <button class="btn waves-effect waves-light float-right" id="patient-logout">Logout
                 <i class="material-icons right">logout</i>
-                </button>
-              <button class="btn waves-effect waves-light" id="toggle">Toggle
-                <i class="material-icons right">favorite</i>
               </button></tr>
             {{#each patients}}
             <tr>
               {{!-- <td><strong>Name</strong></td>
               <td> --}}
-                 <td><strong>Name </strong> </td>
-              <td>
-                <div class="input-field">
-                  <label for="patient_name">{{this.patient_name}}</label> 
-                  <input enabled id="patient-name" type="input" class="validate" value={{this.patient_name}}>
-                </div>
-              </td>
+              <td><strong>Name </strong> </td>
+              <td>{{this.patient_name}}</td>
             </tr>
             <tr>
-                 <td><strong>Address </strong> </td>
-              <td>
-                <div class="input-field">
-                  <label for="address">{{this.patient_primary_address1}}</label>
-                <input enabled  id="address" type="input" class="validate"  value={{this.patient_primary_address1}}>
-               </div>
-                </td>
+              <td><strong>Address </strong> </td>
+              <td> {{this.patient_primary_address1}}</td>
             </tr>
             <tr>
               <td><strong>City, Zip Code</strong> </td>
-              <td>
-                <div class="input-field">
-                <input enabled  id="city" type="input" class="validate"  value={{this.patient_city}} >
-                <input enabled  id="zip" type="input" class="validate" data-length="120" value={{this.patient_zip}} >
-               </div>
-               
-              </td>
+              <td>{{this.patient_city}}, {{this.patient_zip}} </td>
             </tr>
             <tr>
               <td><strong>Medical Insurance ID# </strong></td>
@@ -75,8 +55,30 @@
     </div>
   </div>
 </div>
+
 <div class="container blue-card z-depth-3">
-  <form type="form-controls">
+  <div class="row">
+    <div class="col s6">
+      <h6 class="right nav-name change-font">My Doctors</h6>
+      <table>
+        <tr>
+          <td><strong>Doctor Name</strong></td>
+          <td>John C Chiu</td>
+          <td>Family Physician</td>
+        </tr>
+        <tr>
+          <td><strong>Doctor Name</strong></td>
+          <td>Heather Met</td>
+          <td>Dentist</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="container blue-card z-depth-3">
+  <form id="searchDiv" type="form-controls">
     <div class="row">
       <div class="col s6">
         <select class="browser-default">
@@ -88,55 +90,65 @@
           <option value="neurologist">Neurologist</option>
         </select>
       </div>
-      </div>
-      <div class="row">
-        <div class="col s6">
-        <label class="white-text" for="searchDoctor"><strong style="font-size: 2em">Find Doctor near me</strong></label>
-        <br>
-        <input placeholder="Enter a Zipcode" type="input" id="searchDoctor" class="w-50">
-        <a class="waves-effect waves-light btn-small bg-info"><i class="material-icons">search</i></a>
-      </div>
     </div>
     <div class="row">
-
+      <div class="col s6">
+        {{#each patients}}
+        <div style="display:none" id="patient-email" data-email={{this.email}}>{{this.email}}</div>
+        {{/each}}
+        <label class="white-text" for="searchDoctorZip"><strong style="font-size: 2em">Find Doctor near me</strong></label>
+        <br>
+        <input placeholder="Enter a Zipcode" type="input" id="searchDoctorZip" class="w-50">
+        <button class="btn waves-effect waves-light btn-small" id="doctor-lookup">
+          <i class="material-icons">search</i>
+        </button>
+      </div>
+    </div>
   </form>
 </div>
-</div>
 
-{{#*inline  "doctorzip"}}
-<table id="doctor-data">
-  {{#each doctors}}
-  <tr>
-    <td><strong>Name</strong></td>
-    <td>{{this.doctor_name}}</td>
-  </tr>
-  <tr>
-    <td><strong>Address</strong></td>
-    <td>{{this.doctor_primary_address1}}</td>
-  </tr>
-  <tr>
-    <td><strong>City</strong></td>
-    <td>{{this.doctor_city}}</td>
-  </tr>
-  <tr>
-    <td><strong>Zip</strong></td>
-    <td>{{this.doctor_zip}}</td>
-  </tr>
-  <hr>
-
-  <h5 class="text-center">Doctors nearby</h5>
-  <br>
-  <h5 class="text-center">Doctor info: <br> {{this.doctors}}</h5>
-  {{!-- response[i] // USE JQUERY --}}
-
-  {{/each}}
-</table>
-{{/inline}}
-
+ <div id="selectDoctor" class="container blue-card z-depth-3">
+    <div class="row">
+      <div class="col s6">
+        <h6 class="nav-name change-font">Select Doctor</h6>
+         {{#each doctors}}
+        <table>
+          <tr>
+            <td><strong>Doctor Name</strong></td>
+            <td>{{this.doctors_name}}</td>
+            
+          </tr>
+        </table>
+        {{/each}}
+      </div>
+    </div>
+ </div>
 <script>
-   var logoutConf= {
+$(document).ready(function () {
+    $("#doctor-lookup").on("click", function () {
+        var userInput = $("#searchDoctorZip").val();
+        var emailId = $("#patient-email").attr("data-email");
+        alert(userInput, emailId);
+        // Get doctor zips from collected database 
+        $.ajax({
+            // Project.findAll({ where: { name: 'doctor_zip' } }).then(projects => {
+            type: "POST",
+            url: "doctors/doctor_zip" ,
+            data: {patientId: emailId, zip: userInput},
+            success: function (res) {
+
+            }
+        }).then(function (response) {
+          parent.window.location = "/api/patient/" +  emailId
+           // $("#selectDoctor").toggle();
+
+
+        });
+    });
+});
+var logoutConf= {
          baseUrl: 'https://dev-527021.okta.com',
-    clientId: '${PATIENT_CLIENT_ID}',
+    clientId: '0oafzij4dl6bUC13R356',
     redirectUri: 'http://localhost:8080',
     authParams: {
       issuer: "https://dev-527021.okta.com/oauth2/default",
@@ -151,17 +163,9 @@
     self.location = "../../";
   }
 
-   $("#doctor-logout-btn").on("click", function() {
+   $("#patient-logout").on("click", function() {
       console.log("Doctor Logout Button pressed");
       logout();
     });
-
-    $("#patient-logout").on("click", function(){
-       logout();
-    });
-    
-    $("#toggle").click(function(){
-      $("#patient-name").toggle();
-      $("#address").toggle();
-    });
 </script>
+

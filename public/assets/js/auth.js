@@ -241,5 +241,31 @@ $(document).ready(function () {
 
   });
 
+  function patient_logout() {
+    patientSignInWidget.session.close(function (err) {
+      if (err) {
+        return;
+      }
+      // The user is now logged out. Render the Sign-In Widget.
+      self.location = "../../";
+    });
+    
+  }
+
+  function doctor_logout(){
+    signInWidget.session.close(function(err){
+      if(err){
+        return;
+      }
+      self.location = "../..";
+    });
+  }
+  $("#patient-logout").on("click", function () {
+    patient_logout();
+  });
+
+  $("#doctor-logout").on("click", function () {
+    doctor_logout();
+  });
 
 });
