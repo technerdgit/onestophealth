@@ -46,3 +46,22 @@ body{
     margin-right: 15px;
    
 }
+
+
+.pulse-time {
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+  }
+
+td, tr{
+    border-color: transparent;
+}
+
+label {
+    width: 60%;
+    font-size: 1em;
+    background-color: transparent;
+    border: transparent;
+}
+
