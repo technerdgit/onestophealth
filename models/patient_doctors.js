@@ -1,4 +1,6 @@
+// enable strict mode
 "use strict";
+// def patientDoctors fields and attributes and module exports for global usage
 module.exports = function(sequelize, DataTypes){
    var patientDoctors = sequelize.define("patient_doctors", {
         current_patient: {
@@ -18,7 +20,7 @@ module.exports = function(sequelize, DataTypes){
             defaultValue: false
         }
     });
-
+   // patientDoctors associations def
      patientDoctors.associate =  function(models){
        // patientDoctors.hasMany(models.patients)    
         

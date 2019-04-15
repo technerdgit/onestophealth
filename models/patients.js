@@ -1,5 +1,8 @@
+// enable strict mode
 "use strict";
+// init exports module for global usage
 module.exports = function(sequelize, DataTypes) {
+  // def Patient table with column names, attributes etc
     var Patient = sequelize.define("patients", {
       patient_name: {
         type: DataTypes.STRING,
@@ -55,7 +58,7 @@ module.exports = function(sequelize, DataTypes) {
          allowNull: false
       }
     });
-  
+    // associate Patient object to other models and relations
     Patient.associate = function(models) {
 
       Patient.belongsToMany(models.insurance_providers, { through: models.patient_insurances});

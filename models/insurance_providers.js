@@ -1,5 +1,8 @@
+// enable strict mode
 "use strict";
+// exports module def
 module.exports = function(sequelize, DataTypes) {
+    // def insuranceProvider fields and attributes
     var insuranceProvider = sequelize.define("insurance_providers", {
       provider_name: {
           type: DataTypes.STRING,
@@ -11,14 +14,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   
+  // associate insuranceProvider to patients and doctors models with belongstoMany attribute
     insuranceProvider.associate = function(models) {
-      // Associating Author with Posts
-      // When an Author is deleted, also delete any associated Posts
       insuranceProvider.belongsToMany(models.patients, { through: models.patient_doctors
       });
       insuranceProvider.belongsToMany(models.doctors, { through: models.patient_doctors });
     };
-  
+    // returns insuranceProvider object for global scope usage
     return insuranceProvider;
   };
   

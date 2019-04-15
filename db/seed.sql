@@ -1,3 +1,5 @@
+-- SEED DATA FOR DB AFTER INIT USING SEQUELIZE
+
 create database onestophealth;
 use onestophealth;
 

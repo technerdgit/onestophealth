@@ -1,6 +1,10 @@
+// strict mode enable
 "use strict";
+// exports Doctor object for use in global scope
 module.exports = function(sequelize, DataTypes) {
+  // def Doctor object using sequelize
     var Doctor = sequelize.define("doctors", {
+      // def field names and attributes and associated validations
       doctor_name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -54,12 +58,12 @@ module.exports = function(sequelize, DataTypes) {
      }
     });
 
-    
+    // def associations for relations within RDBMS
     Doctor.associate = function(models) {
      Doctor.belongsToMany(models.patients, { through: models.patient_doctors});
      Doctor.belongsToMany(models.insurance_providers, { through: models.doctor_insurances});
 
        };
-  
+    // returns Doctor object for export
     return Doctor;
   };
