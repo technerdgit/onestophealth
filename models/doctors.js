@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       doctor_primary_address1: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       doctor_primary_address2: {
         type: DataTypes.STRING,
@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       doctor_city: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       doctor_state: {
         type: DataTypes.STRING,
@@ -34,15 +34,15 @@ module.exports = function(sequelize, DataTypes) {
       } ,
       doctor_zip: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       } ,
       doctor_login_name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       doctor_login_password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
       } ,
       doctor_insurance_accepted: {
         type: DataTypes.STRING,

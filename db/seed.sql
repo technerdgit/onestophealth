@@ -2,10 +2,14 @@ create database onestophealth;
 use onestophealth;
 
 insert into doctors (doctor_name,doctor_primary_address1,doctor_city,doctor_state,doctor_zip,doctor_specialization,doctor_login_name,doctor_login_password,doctor_type,createdAt,updatedAt,email)
+values("Kanwar Batra","3500 King Dr1","Beverly Hills","CA","92050","Family","andrewx","test123ABC",'Physician', now(), now(),"kanwar@gmail.com");
+
+
+insert into doctors (doctor_name,doctor_primary_address1,doctor_city,doctor_state,doctor_zip,doctor_specialization,doctor_login_name,doctor_login_password,doctor_type,createdAt,updatedAt,email)
 values("Andrew Xie","1500 De Anza Blvd","Cupertino","CA","95050","General","andrewx","test123ABC",'Physician', now(), now(),"xie.andrew2235@gmail.com");
 
 insert into doctors (doctor_name,doctor_primary_address1,doctor_city,doctor_state,doctor_zip,doctor_specialization,doctor_login_name,doctor_login_password,doctor_type,createdAt,updatedAt,email)
-values("Calvin C","100 Pearl Dr","San Jose","CA","95135","Dentist","calvin","test123ABC",'Dentist', now(), now(), "calvin.r.chau@gmail.com");
+values("Calvin C","100 Pearl Dr","San Jose","CA","95135","Dentist","calvin","test123ABC",'Dentist', now(), now(), "mmzceea3@gmail.com");
 
 
 
@@ -40,6 +44,5 @@ insert into patient_insurances(patientId,insuranceProviderId,createdAt,updatedAt
 insert into doctor_insurances(doctorId,insuranceProviderId,createdAt,updatedAt) values(1,1,now(),now());
 insert into doctor_insurances(doctorId,insuranceProviderId,createdAt,updatedAt) values(1,2,now(),now());
 
-SELECT `id`, `patient_name`, `patient_primary_address1`, `patient_primary_address2`, `patient_city`, `patient_state`, `patient_zip`, `patient_medical_provider_id`, `patient_medical_insurance_id`, `patient_dental_provider_id`, `patient_dental_insurance_id`, `patient_login_name`, `patient_login_password`, `createdAt`, `updatedAt` FROM `patients` AS `patients` WHERE `patients`.`id` = '2';
 
 
